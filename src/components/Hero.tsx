@@ -146,14 +146,21 @@ const Hero: React.FC = () => {
 
           {/* CTA Buttons */}
           <BlurIn delay={1.2} duration={0.6}>
-            <div className="flex flex-wrap gap-4">
-              <MagneticButton href="/contact" className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-primary dark:bg-white light:bg-black text-white dark:text-black light:text-white font-medium transition-colors shadow-[0_0_20px_rgba(59,130,246,0.3)] dark:shadow-none">
-                Let’s Grow Your Brand
-                <ArrowRight className="w-4 h-4" />
-              </MagneticButton>
-              <MagneticButton href="/contact" className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-primary/20 dark:bg-white/20 light:bg-black/10 backdrop-blur-sm text-primary dark:text-white light:text-black font-medium transition-colors border border-primary/30 dark:border-white/10">
-                Book a Free Strategy Call
-              </MagneticButton>
+            <div className="flex flex-col gap-4">
+              <div className="flex flex-wrap gap-4">
+                <MagneticButton href="/contact" className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-primary dark:bg-white light:bg-black text-white dark:text-black light:text-white font-medium transition-colors shadow-[0_0_20px_rgba(59,130,246,0.3)] dark:shadow-none">
+                  Let’s Grow Your Brand
+                  <ArrowRight className="w-4 h-4" />
+                </MagneticButton>
+                <MagneticButton href="/contact" className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-primary/20 dark:bg-white/20 light:bg-black/10 backdrop-blur-sm text-primary dark:text-white light:text-black font-medium transition-colors border border-primary/30 dark:border-white/10">
+                  Book a Free Strategy Call
+                </MagneticButton>
+              </div>
+              <div className="flex">
+                <MagneticButton href="/contact" className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-transparent text-white/60 dark:text-white/60 light:text-black/60 hover:text-white dark:hover:text-white light:hover:text-black font-medium transition-colors border border-transparent hover:border-white/20 dark:hover:border-white/20 light:hover:border-black/20">
+                  Contact Us
+                </MagneticButton>
+              </div>
             </div>
           </BlurIn>
         </div>

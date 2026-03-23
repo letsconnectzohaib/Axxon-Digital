@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Share2, Palette, TrendingUp, Search, Globe, UserCheck, ArrowRight } from 'lucide-react';
 import TextReveal from '../components/TextReveal';
@@ -61,6 +61,16 @@ const Services: React.FC = () => {
     "Fashion & Lifestyle", "Tech & SaaS", "Food & Beverage", "Fintech"
   ];
 
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate fetching data
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1200);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="bg-[#050510] dark:bg-[#0A0A0A] light:bg-[#F8F9FA] pt-32 transition-colors duration-300">
       <section className="py-20 px-6 lg:px-12 max-w-[1800px] mx-auto">
@@ -84,56 +94,78 @@ const Services: React.FC = () => {
           </div>
           
           <div className="lg:w-2/3 flex flex-col gap-8">
-            {expertise.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ delay: i * 0.1, duration: 0.6, type: "spring", stiffness: 100 }}
-              >
-              <TiltCard className="w-full">
-                <div className="p-8 md:p-12 rounded-3xl bg-white/5 dark:bg-white/5 light:bg-white border border-white/10 dark:border-white/10 light:border-black/10 transition-all duration-300 group relative overflow-hidden flex flex-col md:flex-row gap-8 items-start md:items-center justify-between w-full hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 dark:hover:shadow-white/5 light:hover:shadow-black/5 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-black/5">
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
-                  <div className="relative z-10 flex-1">
+            {isLoading ? (
+              // Skeleton Loader
+              Array.from({ length: 4 }).map((_, i) => (
+                <div key={`skeleton-${i}`} className="w-full p-8 md:p-12 rounded-3xl bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 animate-pulse flex flex-col md:flex-row gap-8 items-start md:items-center justify-between">
+                  <div className="flex-1 w-full">
                     <div className="flex items-center gap-4 mb-6">
-                      <motion.div 
-                        initial={{ scale: 0.8, rotate: -15, opacity: 0 }}
-                        whileInView={{ scale: 1, rotate: 0, opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ 
-                          delay: i * 0.1 + 0.2, 
-                          type: "spring", 
-                          stiffness: 120,
-                          damping: 15
-                        }}
-                        className="w-14 h-14 rounded-2xl bg-white/10 dark:bg-white/10 light:bg-black/5 flex items-center justify-center group-hover:bg-primary dark:group-hover:bg-white light:group-hover:bg-black transition-colors"
-                      >
-                        <item.icon className="text-white dark:text-white light:text-black group-hover:text-white dark:group-hover:text-black light:group-hover:text-white transition-colors" size={28} />
-                      </motion.div>
-                      <span className="text-white/20 dark:text-white/20 light:text-black/20 font-mono text-xl transition-colors">{item.id}</span>
+                      <div className="w-14 h-14 rounded-2xl bg-white/10 dark:bg-white/10 light:bg-black/10" />
+                      <div className="w-8 h-6 rounded bg-white/10 dark:bg-white/10 light:bg-black/10" />
                     </div>
-                    
-                    <h3 className="font-medium text-3xl md:text-4xl text-white dark:text-white light:text-black mb-4 transition-colors group-hover:text-primary dark:group-hover:text-white light:group-hover:text-primary">{item.title}</h3>
-                    <p className="text-white/60 dark:text-white/60 light:text-black/60 mb-8 leading-relaxed transition-colors text-lg max-w-2xl">{item.desc}</p>
-                    
-                    <div className="flex flex-wrap gap-3 relative z-10">
-                      {item.includes.map((inc, j) => (
-                        <span key={j} className="px-4 py-2 rounded-full text-sm bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 text-white/80 dark:text-white/80 light:text-black/80 transition-colors group-hover:border-white/30 dark:group-hover:border-white/30 light:group-hover:border-black/30">
-                          {inc}
-                        </span>
-                      ))}
+                    <div className="h-10 w-3/4 bg-white/10 dark:bg-white/10 light:bg-black/10 rounded mb-4" />
+                    <div className="h-4 w-full bg-white/10 dark:bg-white/10 light:bg-black/10 rounded mb-2" />
+                    <div className="h-4 w-5/6 bg-white/10 dark:bg-white/10 light:bg-black/10 rounded mb-8" />
+                    <div className="flex flex-wrap gap-3">
+                      <div className="h-8 w-32 bg-white/10 dark:bg-white/10 light:bg-black/10 rounded-full" />
+                      <div className="h-8 w-40 bg-white/10 dark:bg-white/10 light:bg-black/10 rounded-full" />
                     </div>
                   </div>
-                  
-                  <div className="relative z-10 hidden md:flex w-16 h-16 rounded-full border border-white/10 dark:border-white/10 light:border-black/10 items-center justify-center group-hover:bg-white dark:group-hover:bg-white light:group-hover:bg-black group-hover:border-transparent transition-all duration-300 shrink-0">
-                    <ArrowRight className="text-white/40 dark:text-white/40 light:text-black/40 group-hover:text-black dark:group-hover:text-black light:group-hover:text-white group-hover:-rotate-45 transition-all duration-300" size={24} />
-                  </div>
+                  <div className="hidden md:block w-16 h-16 rounded-full bg-white/10 dark:bg-white/10 light:bg-black/10 shrink-0" />
                 </div>
-              </TiltCard>
-            </motion.div>
-          ))}
+              ))
+            ) : (
+              expertise.map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ delay: i * 0.1, duration: 0.6, type: "spring", stiffness: 100 }}
+                >
+                <TiltCard className="w-full">
+                  <div className="p-8 md:p-12 rounded-3xl bg-white/5 dark:bg-white/5 light:bg-white border border-white/10 dark:border-white/10 light:border-black/10 transition-all duration-300 group relative overflow-hidden flex flex-col md:flex-row gap-8 items-start md:items-center justify-between w-full hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 dark:hover:shadow-white/5 light:hover:shadow-black/5 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-black/5">
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    <div className="relative z-10 flex-1">
+                      <div className="flex items-center gap-4 mb-6">
+                        <motion.div 
+                          initial={{ scale: 0.8, rotate: -15, opacity: 0 }}
+                          whileInView={{ scale: 1, rotate: 0, opacity: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ 
+                            delay: i * 0.1 + 0.2, 
+                            type: "spring", 
+                            stiffness: 120,
+                            damping: 15
+                          }}
+                          className="w-14 h-14 rounded-2xl bg-white/10 dark:bg-white/10 light:bg-black/5 flex items-center justify-center group-hover:bg-primary dark:group-hover:bg-white light:group-hover:bg-black transition-colors"
+                        >
+                          <item.icon className="text-white dark:text-white light:text-black group-hover:text-white dark:group-hover:text-black light:group-hover:text-white transition-colors" size={28} />
+                        </motion.div>
+                        <span className="text-white/20 dark:text-white/20 light:text-black/20 font-mono text-xl transition-colors">{item.id}</span>
+                      </div>
+                      
+                      <h3 className="font-medium text-3xl md:text-4xl text-white dark:text-white light:text-black mb-4 transition-colors group-hover:text-primary dark:group-hover:text-white light:group-hover:text-primary">{item.title}</h3>
+                      <p className="text-white/60 dark:text-white/60 light:text-black/60 mb-8 leading-relaxed transition-colors text-lg max-w-2xl">{item.desc}</p>
+                      
+                      <div className="flex flex-wrap gap-3 relative z-10">
+                        {item.includes.map((inc, j) => (
+                          <span key={j} className="px-4 py-2 rounded-full text-sm bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 text-white/80 dark:text-white/80 light:text-black/80 transition-colors group-hover:border-white/30 dark:group-hover:border-white/30 light:group-hover:border-black/30">
+                            {inc}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div className="relative z-10 hidden md:flex w-16 h-16 rounded-full border border-white/10 dark:border-white/10 light:border-black/10 items-center justify-center group-hover:bg-white dark:group-hover:bg-white light:group-hover:bg-black group-hover:border-transparent transition-all duration-300 shrink-0">
+                      <ArrowRight className="text-white/40 dark:text-white/40 light:text-black/40 group-hover:text-black dark:group-hover:text-black light:group-hover:text-white group-hover:-rotate-45 transition-all duration-300" size={24} />
+                    </div>
+                  </div>
+                </TiltCard>
+              </motion.div>
+            ))
+            )}
           </div>
         </div>
       </section>

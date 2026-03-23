@@ -32,8 +32,9 @@ const Navbar: React.FC = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#050510]/80 dark:bg-[#0A0A0A]/90 light:bg-white/80 backdrop-blur-md py-4' : 'bg-transparent py-6'}`}>
       <div className="max-w-[1800px] mx-auto px-6 lg:px-12 flex justify-between items-center">
         <Link to="/" className="group flex items-center gap-2">
-          <span className="text-2xl font-bold tracking-tighter text-white dark:text-white light:text-black transition-colors uppercase">
-            AXXON<span className="text-primary blue:text-primary dark:text-gray-400 light:text-gray-500 transition-colors">DIGITAL</span>
+          <span className="text-xl sm:text-2xl font-bold tracking-tighter text-white dark:text-white light:text-black transition-colors uppercase flex flex-col sm:flex-row sm:items-center leading-none sm:leading-normal">
+            <span>AXXON</span>
+            <span className="text-primary blue:text-primary dark:text-gray-400 light:text-gray-500 transition-colors text-sm sm:text-2xl">DIGITAL</span>
           </span>
         </Link>
 

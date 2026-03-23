@@ -7,10 +7,10 @@ import MagneticButton from './MagneticButton';
 
 const Footer: React.FC = () => {
   const socialLinks = [
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: MessageCircle, href: "#", label: "WhatsApp" },
+    { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+    { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+    { icon: MessageCircle, href: "https://wa.me/1234567890", label: "WhatsApp" },
   ];
 
   const { theme } = useTheme();
@@ -33,6 +33,8 @@ const Footer: React.FC = () => {
                 <MagneticButton 
                   key={i}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={social.label}
                   whileHover={{ 
                     scale: 1.1, 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import MagneticButton from '../components/MagneticButton';
@@ -82,8 +83,10 @@ const Blog: React.FC = () => {
                         </p>
                       </div>
                     </div>
-                    <div className="relative z-10 flex items-center gap-2 text-white dark:text-white light:text-black font-medium group-hover:gap-4 transition-all transition-colors mt-6">
-                      Read More <ArrowRight size={18} />
+                    <div className="relative z-10 flex items-center gap-2 mt-6">
+                      <Link to={`/blog/${post.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/10 dark:bg-white/10 light:bg-black/5 border border-white/20 dark:border-white/20 light:border-black/20 text-white dark:text-white light:text-black font-medium hover:bg-primary hover:border-primary hover:text-white dark:hover:bg-white dark:hover:text-black light:hover:bg-black light:hover:text-white transition-all duration-300 group-hover:gap-4">
+                        Read More <ArrowRight size={16} />
+                      </Link>
                     </div>
                   </div>
                 </HoverImageReveal>

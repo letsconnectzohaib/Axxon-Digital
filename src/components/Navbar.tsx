@@ -28,11 +28,11 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#050510]/80 blue:bg-[#050510]/80 dark:bg-[#0A0A0A]/90 light:bg-white/80 backdrop-blur-md py-4' : 'bg-transparent py-6'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#050510]/80 dark:bg-[#0A0A0A]/90 light:bg-white/80 backdrop-blur-md py-4' : 'bg-transparent py-6'}`}>
       <div className="max-w-[1800px] mx-auto px-6 lg:px-12 flex justify-between items-center">
         <Link to="/" className="group flex items-center gap-2">
-          <span className="text-2xl font-bold tracking-tighter text-white blue:text-white dark:text-white light:text-black transition-colors uppercase">
-            AXXON<span className="text-primary blue:text-primary dark:text-white/40 light:text-black/30">DIGITAL</span>
+          <span className="text-2xl font-bold tracking-tighter text-white dark:text-white light:text-black transition-colors uppercase">
+            AXXON<span className="text-primary dark:text-white/40 light:text-black/30">DIGITAL</span>
           </span>
         </Link>
 
@@ -42,7 +42,7 @@ const Navbar: React.FC = () => {
             <Link
               key={link.name}
               to={link.path}
-              className={`text-sm font-medium transition-colors hover:text-white blue:hover:text-white dark:hover:text-white light:hover:text-black ${location.pathname === link.path ? 'text-white blue:text-white dark:text-white light:text-black' : 'text-white/60 blue:text-white/60 dark:text-white/60 light:text-black/60'}`}
+              className={`text-sm font-medium transition-colors hover:text-white dark:hover:text-white light:hover:text-black ${location.pathname === link.path ? 'text-white dark:text-white light:text-black' : 'text-white/60 dark:text-white/60 light:text-black/60'}`}
             >
               {link.name}
             </Link>
@@ -51,7 +51,7 @@ const Navbar: React.FC = () => {
           {/* Theme Toggle */}
           <button 
             onClick={cycleTheme}
-            className="p-2 rounded-full bg-white/5 blue:bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 blue:border-white/10 dark:border-white/10 light:border-black/10 text-white blue:text-white dark:text-white light:text-black hover:scale-110 transition-all"
+            className="p-2 rounded-full bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 text-white dark:text-white light:text-black hover:scale-110 transition-all"
             aria-label="Toggle theme"
           >
             {theme === 'light' ? <Sun size={18} /> : theme === 'blue' ? <Zap size={18} className="text-primary" /> : <Moon size={18} />}
@@ -69,11 +69,11 @@ const Navbar: React.FC = () => {
         <div className="flex items-center gap-4 md:hidden">
           <button 
             onClick={cycleTheme}
-            className="p-2 rounded-full bg-white/5 blue:bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 blue:border-white/10 dark:border-white/10 light:border-black/10 text-white blue:text-white dark:text-white light:text-black"
+            className="p-2 rounded-full bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 text-white dark:text-white light:text-black"
           >
             {theme === 'light' ? <Sun size={18} /> : theme === 'blue' ? <Zap size={18} className="text-primary" /> : <Moon size={18} />}
           </button>
-          <button className="text-white blue:text-white dark:text-white light:text-black" onClick={() => setIsOpen(!isOpen)}>
+          <button className="text-white dark:text-white light:text-black" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X /> : <Menu />}
           </button>
         </div>
@@ -86,14 +86,14 @@ const Navbar: React.FC = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 bg-[#050510] blue:bg-[#050510] dark:bg-[#0A0A0A] light:bg-white border-b border-white/10 blue:border-white/10 dark:border-white/5 light:border-black/10 p-6 flex flex-col gap-4 md:hidden shadow-2xl"
+            className="absolute top-full left-0 right-0 bg-[#050510] dark:bg-[#0A0A0A] light:bg-white border-b border-white/10 dark:border-white/5 light:border-black/10 p-6 flex flex-col gap-4 md:hidden shadow-2xl"
           >
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className={`text-lg font-medium transition-colors ${location.pathname === link.path ? 'text-white blue:text-white dark:text-white light:text-black' : 'text-white/60 blue:text-white/60 dark:text-white/60 light:text-black/60'}`}
+                className={`text-lg font-medium transition-colors ${location.pathname === link.path ? 'text-white dark:text-white light:text-black' : 'text-white/60 dark:text-white/60 light:text-black/60'}`}
               >
                 {link.name}
               </Link>

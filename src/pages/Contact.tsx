@@ -43,6 +43,9 @@ const Contact: React.FC = () => {
     }
   };
 
+  const inputClasses = "w-full bg-black/20 blue:bg-black/20 dark:bg-black/20 light:bg-white/50 border border-white/10 blue:border-white/10 dark:border-white/10 light:border-black/20 rounded-xl px-5 py-4 text-white blue:text-white dark:text-white light:text-black focus:border-white blue:focus:border-primary dark:focus:border-white light:focus:border-primary focus:ring-1 focus:ring-white blue:focus:ring-primary dark:focus:ring-white light:focus:ring-primary outline-none transition-all";
+  const errorClasses = "border-red-500 focus:border-red-500 focus:ring-red-500";
+
   return (
     <div className="bg-[#050510] dark:bg-[#0A0A0A] light:bg-[#F8F9FA] pt-32 transition-colors duration-300">
       <section className="py-20 px-6 lg:px-12 max-w-[1800px] mx-auto">
@@ -113,7 +116,7 @@ const Contact: React.FC = () => {
                     type="text" 
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    className={`w-full bg-black/20 blue:bg-black/20 dark:bg-black/20 light:bg-white/50 border ${errors.name ? 'border-red-500' : 'border-white/10 blue:border-white/10 dark:border-white/10 light:border-black/20'} rounded-xl px-5 py-4 text-white blue:text-white dark:text-white light:text-black focus:border-white blue:focus:border-primary dark:focus:border-white light:focus:border-primary focus:ring-1 focus:ring-white blue:focus:ring-primary dark:focus:ring-white light:focus:ring-primary outline-none transition-all`} 
+                    className={`${inputClasses} ${errors.name ? errorClasses : ''}`}
                     placeholder="John Doe" 
                   />
                   {errors.name && <p className="text-red-500 text-xs ml-1 flex items-center gap-1"><AlertCircle size={12}/> {errors.name}</p>}
@@ -124,7 +127,7 @@ const Contact: React.FC = () => {
                     type="email" 
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    className={`w-full bg-black/20 blue:bg-black/20 dark:bg-black/20 light:bg-white/50 border ${errors.email ? 'border-red-500' : 'border-white/10 blue:border-white/10 dark:border-white/10 light:border-black/20'} rounded-xl px-5 py-4 text-white blue:text-white dark:text-white light:text-black focus:border-white blue:focus:border-primary dark:focus:border-white light:focus:border-primary focus:ring-1 focus:ring-white blue:focus:ring-primary dark:focus:ring-white light:focus:ring-primary outline-none transition-all`} 
+                    className={`${inputClasses} ${errors.email ? errorClasses : ''}`}
                     placeholder="john@example.com" 
                   />
                   {errors.email && <p className="text-red-500 text-xs ml-1 flex items-center gap-1"><AlertCircle size={12}/> {errors.email}</p>}
@@ -136,7 +139,7 @@ const Contact: React.FC = () => {
                   type="text" 
                   value={formData.business}
                   onChange={(e) => setFormData({...formData, business: e.target.value})}
-                  className="w-full bg-black/20 blue:bg-black/20 dark:bg-black/20 light:bg-white/50 border border-white/10 blue:border-white/10 dark:border-white/10 light:border-black/20 rounded-xl px-5 py-4 text-white blue:text-white dark:text-white light:text-black focus:border-white blue:focus:border-primary dark:focus:border-white light:focus:border-primary focus:ring-1 focus:ring-white blue:focus:ring-primary dark:focus:ring-white light:focus:ring-primary outline-none transition-all" 
+                  className={inputClasses}
                   placeholder="AXXON Corp" 
                 />
               </div>
@@ -145,7 +148,7 @@ const Contact: React.FC = () => {
                 <select 
                   value={formData.service}
                   onChange={(e) => setFormData({...formData, service: e.target.value})}
-                  className="w-full bg-black/20 blue:bg-black/20 dark:bg-black/20 light:bg-white/50 border border-white/10 blue:border-white/10 dark:border-white/10 light:border-black/20 rounded-xl px-5 py-4 text-white blue:text-white dark:text-white light:text-black focus:border-white blue:focus:border-primary dark:focus:border-white light:focus:border-primary focus:ring-1 focus:ring-white blue:focus:ring-primary dark:focus:ring-white light:focus:ring-primary outline-none transition-all appearance-none"
+                  className={`${inputClasses} appearance-none`}
                   style={{ backgroundImage: 'url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E")', backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem top 50%', backgroundSize: '0.65rem auto' }}
                 >
                   <option className="bg-[#050510] dark:bg-[#0A0A0A] light:bg-white">Social Media Marketing</option>
@@ -161,7 +164,7 @@ const Contact: React.FC = () => {
                   rows={4} 
                   value={formData.message}
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
-                  className={`w-full bg-black/20 blue:bg-black/20 dark:bg-black/20 light:bg-white/50 border ${errors.message ? 'border-red-500' : 'border-white/10 blue:border-white/10 dark:border-white/10 light:border-black/20'} rounded-xl px-5 py-4 text-white blue:text-white dark:text-white light:text-black focus:border-white blue:focus:border-primary dark:focus:border-white light:focus:border-primary focus:ring-1 focus:ring-white blue:focus:ring-primary dark:focus:ring-white light:focus:ring-primary outline-none transition-all resize-none transition-colors`} 
+                  className={`${inputClasses} ${errors.message ? errorClasses : ''} resize-none`}
                   placeholder="How can we help you grow?"
                 ></textarea>
                 {errors.message && <p className="text-red-500 text-xs ml-1 flex items-center gap-1"><AlertCircle size={12}/> {errors.message}</p>}

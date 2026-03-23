@@ -135,9 +135,9 @@ const Hero: React.FC = () => {
 
             {/* Subtitle */}
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
+              transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
               className="max-w-xl text-white/80 dark:text-white/80 light:text-black/80 blue:text-white/80 sky:text-black/80 text-lg font-normal leading-relaxed transition-colors"
             >
               <SplitText 
@@ -162,9 +162,6 @@ const Hero: React.FC = () => {
                 </MagneticButton>
               </div>
               <div className="flex">
-                <MagneticButton href="/contact" className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-transparent text-white/60 dark:text-white/60 light:text-black/60 hover:text-white dark:hover:text-white light:hover:text-black font-medium transition-colors border border-transparent hover:border-white/20 dark:hover:border-white/20 light:hover:border-black/20">
-                  Contact Us
-                </MagneticButton>
               </div>
             </div>
           </BlurIn>

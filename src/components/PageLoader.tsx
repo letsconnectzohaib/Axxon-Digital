@@ -28,7 +28,7 @@ const PageLoader: React.FC = () => {
             className="flex flex-col items-center gap-4"
           >
             <div className="text-4xl md:text-6xl font-bold tracking-tighter text-white dark:text-white light:text-black uppercase flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 500 500" className="w-20 h-20 text-primary blue:text-primary dark:text-white light:text-black transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 500 500" className="w-24 h-24 text-primary blue:text-primary dark:text-white light:text-black transition-colors">
                 <path fill="currentColor" fillOpacity=".1" d="M142 145.5c-2.4 2.5-4.2 4.5-3.9 4.5s2.5-2 4.9-4.5 4.2-4.5 3.9-4.5-2.5 2-4.9 4.5m-6 208.9c0 .2.8 1 1.8 1.7 1.5 1.3 1.6 1.2.3-.4s-2.1-2.1-2.1-1.3m9 9c0 .2.8 1 1.8 1.7 1.5 1.3 1.6 1.2.3-.4s-2.1-2.1-2.1-1.3"/>
                 <path fill="currentColor" fillOpacity=".9" d="m142.5 146.2-4 4.3 4.3-4c3.9-3.6 4.7-4.5 3.9-4.5-.2 0-2.1 1.9-4.2 4.2M137 354.4c0 .2.8 1 1.8 1.7 1.5 1.3 1.6 1.2.3-.4s-2.1-2.1-2.1-1.3m8 8c0 .2.8 1 1.8 1.7 1.5 1.3 1.6 1.2.3-.4s-2.1-2.1-2.1-1.3"/>
                 <g fill="currentColor" strokeWidth="0">

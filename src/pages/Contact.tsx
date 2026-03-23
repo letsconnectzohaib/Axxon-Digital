@@ -25,6 +25,7 @@ const Contact: React.FC = () => {
       newErrors.email = 'Invalid email format';
     }
     if (!formData.message.trim()) newErrors.message = 'Message is required';
+    else if (formData.message.trim().length < 10) newErrors.message = 'Message must be at least 10 characters';
     
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -34,16 +35,21 @@ const Contact: React.FC = () => {
     e.preventDefault();
     if (validate()) {
       setIsSubmitting(true);
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      setIsSubmitting(false);
-      setIsSuccess(true);
-      setFormData({ name: '', email: '', business: '', service: 'Social Media Marketing', message: '' });
-      setTimeout(() => setIsSuccess(false), 5000);
+      try {
+        // Simulate API call
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        setIsSuccess(true);
+        setFormData({ name: '', email: '', business: '', service: 'Social Media Marketing', message: '' });
+        setTimeout(() => setIsSuccess(false), 5000);
+      } catch (error) {
+        setErrors({ form: 'Failed to send message. Please try again later.' });
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
-  const inputClasses = "w-full bg-black/20 blue:bg-black/20 dark:bg-black/20 light:bg-white/50 sky:bg-white/50 border border-white/10 blue:border-white/10 dark:border-white/10 light:border-black/20 sky:border-black/20 rounded-xl px-5 py-4 text-white blue:text-white dark:text-white light:text-black sky:text-black focus:border-white blue:focus:border-primary dark:focus:border-white light:focus:border-primary sky:focus:border-primary focus:ring-1 focus:ring-white blue:focus:ring-primary dark:focus:ring-white light:focus:ring-primary sky:focus:ring-primary outline-none transition-all";
+  const inputClasses = "w-full bg-black/20 blue:bg-black/20 dark:bg-black/20 light:bg-white/50 sky:bg-white/50 border border-white/10 blue:border-white/20 dark:border-white/10 light:border-black/20 sky:border-black/20 rounded-xl px-5 py-4 text-white blue:text-white dark:text-white light:text-black sky:text-black focus:border-white blue:focus:border-primary dark:focus:border-white light:focus:border-primary sky:focus:border-primary focus:ring-1 focus:ring-white blue:focus:ring-primary dark:focus:ring-white light:focus:ring-primary sky:focus:ring-primary outline-none transition-all";
   const errorClasses = "border-red-500 focus:border-red-500 focus:ring-red-500";
 
   return (
@@ -109,6 +115,7 @@ const Contact: React.FC = () => {
             </AnimatePresence>
 
             <form className={`space-y-6 ${isSuccess ? 'mt-8' : ''}`} onSubmit={handleSubmit}>
+              {errors.form && <p className="text-red-500 text-sm">{errors.form}</p>}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm text-white/60 dark:text-white/60 light:text-black/60 ml-1 transition-colors">Full Name</label>

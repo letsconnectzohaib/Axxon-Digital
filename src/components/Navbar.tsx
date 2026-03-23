@@ -32,7 +32,7 @@ const Navbar: React.FC = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#050510]/80 dark:bg-[#0A0A0A]/90 light:bg-white/80 backdrop-blur-md py-4' : 'bg-transparent py-6'}`}>
       <div className="max-w-[1800px] mx-auto px-6 lg:px-12 flex justify-between items-center">
         <Link to="/" className="group flex items-center gap-0.5">
-          <svg xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 500 500" className="w-6 h-6 text-primary blue:text-primary dark:text-white light:text-black transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 500 500" className="w-8 h-8 text-primary blue:text-primary dark:text-white light:text-black transition-colors">
             <path fill="currentColor" fillOpacity=".1" d="M142 145.5c-2.4 2.5-4.2 4.5-3.9 4.5s2.5-2 4.9-4.5 4.2-4.5 3.9-4.5-2.5 2-4.9 4.5m-6 208.9c0 .2.8 1 1.8 1.7 1.5 1.3 1.6 1.2.3-.4s-2.1-2.1-2.1-1.3m9 9c0 .2.8 1 1.8 1.7 1.5 1.3 1.6 1.2.3-.4s-2.1-2.1-2.1-1.3"/>
             <path fill="currentColor" fillOpacity=".9" d="m142.5 146.2-4 4.3 4.3-4c3.9-3.6 4.7-4.5 3.9-4.5-.2 0-2.1 1.9-4.2 4.2M137 354.4c0 .2.8 1 1.8 1.7 1.5 1.3 1.6 1.2.3-.4s-2.1-2.1-2.1-1.3m8 8c0 .2.8 1 1.8 1.7 1.5 1.3 1.6 1.2.3-.4s-2.1-2.1-2.1-1.3"/>
             <g fill="currentColor" strokeWidth="0">
@@ -45,9 +45,9 @@ const Navbar: React.FC = () => {
             <path fill="currentColor" fillOpacity=".5" d="M238.8 101.7c.7.3 1.6.2 1.9-.1.4-.3-.2-.6-1.3-.5-1.1 0-1.4.3-.6.6m21 0c.7.3 1.6.2 1.9-.1.4-.3-.2-.6-1.3-.5-1.1 0-1.4.3-.6.6m52.5 18.8c0 2.7.2 3.8.4 2.2.2-1.5.2-3.7 0-5-.2-1.2-.4 0-.4 2.8m38 44.2c2 .2 5.4.2 7.5 0 2-.2.3-.4-3.8-.4s-5.8.2-3.7.4M153.2 246c0 1.4.2 1.9.5 1.2.2-.6.2-1.8 0-2.5-.3-.6-.5-.1-.5 1.3m-55 6.5c0 1.6.2 2.2.5 1.2.2-.9.2-2.3 0-3-.3-.6-.5.1-.5 1.8m303.3 72c0 41.2.1 58.3.2 37.8.2-20.4.2-54.2 0-75-.1-20.8-.2-4.1-.2 37.2M153.2 259c0 1.4.2 1.9.5 1.2.2-.6.2-1.8 0-2.5-.3-.6-.5-.1-.5 1.3m193 0c0 1.4.2 1.9.5 1.2.2-.6.2-1.8 0-2.5-.3-.6-.5-.1-.5 1.3M237.8 403.7c.7.3 1.6.2 1.9-.1.4-.3-.2-.6-1.3-.5-1.1 0-1.4.3-.6.6m23 0c.7.3 1.6.2 1.9-.1.4-.3-.2-.6-1.3-.5-1.1 0-1.4.3-.6.6"/>
             <path fill="currentColor" fillOpacity=".8" d="M147.9 140.7c-1.3 1.6-1.2 1.7.4.4.9-.7 1.7-1.5 1.7-1.7 0-.8-.8-.3-2.1 1.3m71.5 82.5-1.9 2.3 2.3-1.9c2.1-1.8 2.7-2.6 1.9-2.6-.2 0-1.2 1-2.3 2.2m60.1-.2c1 1.1 2 2 2.3 2s-.3-.9-1.3-2-2-2-2.3-2 .3.9 1.3 2m-60 59c1 1.1 2 2 2.3 2s-.3-.9-1.3-2-2-2-2.3-2 .3.9 1.3 2m59.9.2-1.9 2.3 2.3-1.9c1.2-1.1 2.2-2.1 2.2-2.3 0-.8-.8-.2-2.6 1.9"/>
           </svg>
-          <span className="text-base sm:text-lg font-bold tracking-tighter transition-colors flex flex-col sm:flex-row sm:items-center leading-none sm:leading-normal">
-            <span className="text-black dark:text-white blue:text-white transition-colors">AXXON</span>
-            <span className="text-gray-500 dark:text-gray-400 blue:text-primary transition-colors text-xs sm:text-xl ml-0 sm:ml-1">DIGITAL</span>
+          <span className="text-lg sm:text-2xl font-sans font-medium tracking-normal transition-colors flex flex-col sm:flex-row sm:items-center leading-none sm:leading-normal">
+            <span className="text-black dark:text-white blue:text-white transition-colors">Axxon</span>
+            <span className="text-gray-500 dark:text-gray-400 blue:text-primary transition-colors text-base sm:text-2xl ml-0 sm:ml-2">Digital</span>
           </span>
         </Link>
 
@@ -75,8 +75,9 @@ const Navbar: React.FC = () => {
           <MagneticButton
             href="/contact"
             className="px-5 py-2 rounded-full bg-primary dark:bg-primary light:bg-black text-white dark:text-white light:text-white text-sm font-medium transition-transform shadow-[0_0_20px_rgba(59,130,246,0.3)]"
+            aria-label="Contact Us"
           >
-            Get Started
+            Contact Us
           </MagneticButton>
         </div>
 
@@ -85,10 +86,11 @@ const Navbar: React.FC = () => {
           <button 
             onClick={cycleTheme}
             className="p-2 rounded-full bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 text-white dark:text-white light:text-black"
+            aria-label="Toggle theme"
           >
             {theme === 'light' ? <Sun size={18} className="text-amber-500" /> : theme === 'blue' ? <Zap size={18} className="text-primary" /> : <Moon size={18} className="text-slate-300" />}
           </button>
-          <button className="text-white dark:text-white light:text-black" onClick={() => setIsOpen(!isOpen)}>
+          <button className="text-white dark:text-white light:text-black" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
             {isOpen ? <X /> : <Menu />}
           </button>
         </div>

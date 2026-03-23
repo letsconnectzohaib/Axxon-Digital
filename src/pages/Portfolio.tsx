@@ -35,9 +35,12 @@ const Portfolio: React.FC = () => {
             <MagneticButton
               key={cat}
               onClick={() => setFilter(cat)}
+              aria-label={`Filter by ${cat}`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               className={`px-6 py-2 rounded-full text-sm font-medium transition-all relative overflow-hidden border ${
                 filter === cat 
-                  ? 'border-primary/50 text-white dark:text-black light:text-white shadow-[0_0_15px_rgba(0,102,255,0.3)] dark:shadow-[0_0_15px_rgba(255,255,255,0.3)] light:shadow-[0_0_15px_rgba(0,0,0,0.2)]' 
+                  ? 'border-primary/50 text-white dark:text-black light:text-white shadow-[0_0_15px_rgba(0,102,255,0.3)] dark:shadow-[0_0_20px_rgba(255,255,255,0.3)] light:shadow-[0_0_15px_rgba(0,0,0,0.2)]' 
                   : 'border-white/10 dark:border-white/10 light:border-black/10 bg-white/5 dark:bg-white/5 light:bg-black/5 text-white/60 dark:text-white/60 light:text-black/60 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-black/10 hover:border-white/30 dark:hover:border-white/30 light:hover:border-black/30'
               }`}
             >
@@ -53,7 +56,7 @@ const Portfolio: React.FC = () => {
           ))}
         </div>
 
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
           <AnimatePresence mode="popLayout">
             {filteredCases.map((item, i) => (
               <motion.div
@@ -63,17 +66,20 @@ const Portfolio: React.FC = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4, type: "spring", stiffness: 100, damping: 20 }}
-                className="group relative aspect-[16/10] rounded-3xl overflow-hidden bg-[#050510] dark:bg-[#0A0A0A] light:bg-white border border-white/10 dark:border-white/10 light:border-black/10 p-12 flex flex-col justify-between hover:border-white/30 dark:hover:border-white/30 light:hover:border-black/30 transition-all transition-colors"
+                className="group relative aspect-[16/10] rounded-3xl overflow-hidden bg-[#050510] dark:bg-[#0A0A0A] light:bg-white border border-white/10 dark:border-white/10 light:border-black/10 p-12 flex flex-col justify-between hover:border-white/30 dark:hover:border-white/30 light:hover:border-black/30 transition-all transition-colors hover:scale-[1.02] duration-300"
               >
                 {/* Parallax Image Background */}
-                <div className="absolute inset-0 z-0 overflow-hidden opacity-0 group-hover:opacity-20 transition-opacity duration-700">
+                <div className="absolute inset-0 z-0 overflow-hidden opacity-0 group-hover:opacity-40 transition-opacity duration-700">
                   <motion.img 
                     src={item.image} 
                     alt={item.title}
                     className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000 ease-out"
                     referrerPolicy="no-referrer"
+                    loading="lazy"
                   />
                 </div>
+                
+                <div className="absolute inset-0 z-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 <div className="relative z-10 flex justify-between items-start">
                   <h3 className="text-2xl font-medium text-white dark:text-white light:text-black max-w-[200px] transition-colors">{item.title}</h3>

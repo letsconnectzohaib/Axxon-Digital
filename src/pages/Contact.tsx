@@ -53,20 +53,20 @@ const Contact: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm text-white/60 dark:text-white/60 light:text-black/60 ml-1 transition-colors">Full Name</label>
-                  <input type="text" className="w-full bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 rounded-xl px-5 py-4 text-white dark:text-white light:text-black focus:border-white/30 blue:focus:border-primary dark:focus:border-white light:focus:border-black/30 outline-none transition-all" placeholder="John Doe" />
+                  <input type="text" className="w-full bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 rounded-xl px-5 py-4 text-white dark:text-white light:text-black focus:border-primary dark:focus:border-white light:focus:border-black/50 outline-none transition-all" placeholder="John Doe" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm text-white/60 dark:text-white/60 light:text-black/60 ml-1 transition-colors">Email Address</label>
-                  <input type="email" className="w-full bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 rounded-xl px-5 py-4 text-white dark:text-white light:text-black focus:border-white/30 blue:focus:border-primary dark:focus:border-white light:focus:border-black/30 outline-none transition-all" placeholder="john@example.com" />
+                  <input type="email" className="w-full bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 rounded-xl px-5 py-4 text-white dark:text-white light:text-black focus:border-primary dark:focus:border-white light:focus:border-black/50 outline-none transition-all" placeholder="john@example.com" />
                 </div>
               </div>
               <div className="space-y-2">
                 <label className="text-sm text-white/60 dark:text-white/60 light:text-black/60 ml-1 transition-colors">Business Name</label>
-                <input type="text" className="w-full bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 rounded-xl px-5 py-4 text-white dark:text-white light:text-black focus:border-white/30 blue:focus:border-primary dark:focus:border-white light:focus:border-black/30 outline-none transition-all" placeholder="AXXON Corp" />
+                <input type="text" className="w-full bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 rounded-xl px-5 py-4 text-white dark:text-white light:text-black focus:border-primary dark:focus:border-white light:focus:border-black/50 outline-none transition-all" placeholder="AXXON Corp" />
               </div>
               <div className="space-y-2">
                 <label className="text-sm text-white/60 dark:text-white/60 light:text-black/60 ml-1 transition-colors">Services Interested In</label>
-                <select className="w-full bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 rounded-xl px-5 py-4 text-white dark:text-white light:text-black focus:border-white/30 blue:focus:border-primary dark:focus:border-white light:focus:border-black/30 outline-none transition-all appearance-none">
+                <select className="w-full bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 rounded-xl px-5 py-4 text-white dark:text-white light:text-black focus:border-primary dark:focus:border-white light:focus:border-black/50 outline-none transition-all appearance-none">
                   <option className="bg-[#050510] dark:bg-[#0A0A0A] light:bg-white">Social Media Marketing</option>
                   <option className="bg-[#050510] dark:bg-[#0A0A0A] light:bg-white">Branding & Design</option>
                   <option className="bg-[#050510] dark:bg-[#0A0A0A] light:bg-white">Performance Marketing</option>
@@ -76,7 +76,7 @@ const Contact: React.FC = () => {
               </div>
               <div className="space-y-2">
                 <label className="text-sm text-white/60 dark:text-white/60 light:text-black/60 ml-1 transition-colors">Message</label>
-                <textarea rows={4} className="w-full bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 rounded-xl px-5 py-4 text-white dark:text-white light:text-black focus:border-white/30 blue:focus:border-primary dark:focus:border-white light:focus:border-black/30 outline-none transition-all resize-none transition-colors" placeholder="How can we help you grow?"></textarea>
+                <textarea rows={4} className="w-full bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 rounded-xl px-5 py-4 text-white dark:text-white light:text-black focus:border-primary dark:focus:border-white light:focus:border-black/50 outline-none transition-all resize-none transition-colors" placeholder="How can we help you grow?"></textarea>
               </div>
               <button className="w-full bg-white blue:bg-primary dark:bg-white light:bg-black text-black blue:text-white dark:text-black light:text-white font-bold py-5 rounded-xl flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98] transition-all transition-colors">
                 Send Message <Send size={18} />

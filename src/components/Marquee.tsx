@@ -29,7 +29,7 @@ const Marquee: React.FC<MarqueeProps> = ({
         {[...items, ...items].map((item, i) => (
           <span 
             key={i} 
-            className="text-4xl md:text-6xl lg:text-8xl font-bold tracking-tighter uppercase text-primary/10 dark:text-primary/10 light:text-black/5"
+            className="text-4xl md:text-6xl lg:text-8xl font-bold tracking-tighter uppercase text-primary/10 dark:text-primary/10 light:text-black/5 sky:text-primary/5"
           >
             {item}
           </span>

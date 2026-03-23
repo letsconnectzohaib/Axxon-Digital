@@ -113,33 +113,33 @@ const ReviewCard: React.FC<{ review: Review; className?: string }> = ({ review, 
   return (
     <motion.div
       variants={itemVariants}
-      className={`bg-white/5 dark:bg-white/5 light:bg-white backdrop-blur-xl p-6 rounded-2xl shadow-2xl border border-white/10 dark:border-white/10 light:border-black/10 max-w-sm w-full transition-all hover:scale-[1.05] hover:z-[100] cursor-default group ${className}`}
+      className={`bg-white/5 dark:bg-white/5 light:bg-white sky:bg-white backdrop-blur-xl p-6 rounded-2xl shadow-2xl border border-white/10 dark:border-white/10 light:border-black/10 sky:border-primary/10 max-w-sm w-full transition-all hover:scale-[1.05] hover:z-[100] cursor-default group ${className}`}
     >
       <div className="flex items-center gap-4 mb-4">
         <div className="relative">
           <img 
             src={review.avatar} 
             alt={review.name} 
-            className="w-12 h-12 rounded-full object-cover border-2 border-white/10 dark:border-white/10 light:border-black/10 group-hover:border-white/30 dark:group-hover:border-white/30 light:group-hover:border-black/30 transition-colors"
+            className="w-12 h-12 rounded-full object-cover border-2 border-white/10 dark:border-white/10 light:border-black/10 sky:border-primary/10 group-hover:border-white/30 dark:group-hover:border-white/30 light:group-hover:border-black/30 sky:group-hover:border-primary/30 transition-colors"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-[#050510] dark:border-[#0A0A0A] light:border-white rounded-full transition-colors" />
+          <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-[#050510] dark:border-[#0A0A0A] light:border-white sky:border-white rounded-full transition-colors" />
         </div>
         <div>
-          <h4 className="text-white dark:text-white light:text-black font-bold text-sm leading-tight transition-colors">{review.name}</h4>
-          <p className="text-white/40 dark:text-white/40 light:text-black/40 text-xs transition-colors">{review.role}</p>
+          <h4 className="text-white dark:text-white light:text-black sky:text-primary font-bold text-sm leading-tight transition-colors">{review.name}</h4>
+          <p className="text-white/40 dark:text-white/40 light:text-black/40 sky:text-primary/40 text-xs transition-colors">{review.role}</p>
         </div>
       </div>
-      <p className="text-white/70 dark:text-white/70 light:text-black/70 text-sm leading-relaxed mb-6 italic transition-colors">
+      <p className="text-white/70 dark:text-white/70 light:text-black/70 sky:text-primary/70 text-sm leading-relaxed mb-6 italic transition-colors">
         « {review.content} »
       </p>
-      <div className="flex items-center gap-2 pt-4 border-t border-white/10 dark:border-white/10 light:border-black/10 transition-colors">
+      <div className="flex items-center gap-2 pt-4 border-t border-white/10 dark:border-white/10 light:border-black/10 sky:border-primary/10 transition-colors">
         <div className="flex gap-0.5">
-          <div className="w-3 h-1 bg-white/30 dark:bg-white/30 light:bg-black/30 rounded-full transition-colors" />
-          <div className="w-3 h-1 bg-white/20 dark:bg-white/20 light:bg-black/20 rounded-full transition-colors" />
-          <div className="w-3 h-1 bg-white/10 dark:bg-white/10 light:bg-black/10 rounded-full transition-colors" />
+          <div className="w-3 h-1 bg-white/30 dark:bg-white/30 light:bg-black/30 sky:bg-primary/30 rounded-full transition-colors" />
+          <div className="w-3 h-1 bg-white/20 dark:bg-white/20 light:bg-black/20 sky:bg-primary/20 rounded-full transition-colors" />
+          <div className="w-3 h-1 bg-white/10 dark:bg-white/10 light:bg-black/10 sky:bg-primary/10 rounded-full transition-colors" />
         </div>
-        <span className="text-white/30 dark:text-white/30 light:text-black/30 text-[10px] uppercase tracking-wider font-medium transition-colors">
+        <span className="text-white/30 dark:text-white/30 light:text-black/30 sky:text-primary/30 text-[10px] uppercase tracking-wider font-medium transition-colors">
           AXXON USER, {review.date}
         </span>
       </div>
@@ -170,16 +170,16 @@ const UserReviews: React.FC<UserReviewsProps> = ({
   };
 
   return (
-    <section className="py-32 bg-[#050510] dark:bg-[#0A0A0A] light:bg-[#F8F9FA] overflow-hidden relative transition-colors duration-300">
+    <section className="py-32 bg-[#050510] dark:bg-[#0A0A0A] light:bg-[#F8F9FA] sky:bg-[#F0F7FF] overflow-hidden relative transition-colors duration-300">
       {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-white/5 dark:bg-white/5 light:bg-black/5 blur-[150px] rounded-full -z-10 transition-colors" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-white/5 dark:bg-white/5 light:bg-black/5 sky:bg-primary/5 blur-[150px] rounded-full -z-10 transition-colors" />
 
       <div className="max-w-[1800px] mx-auto px-6 lg:px-12 text-center mb-24">
         <motion.h2 
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-6xl font-bold text-white dark:text-white light:text-black mb-6 tracking-tight transition-colors"
+          className="text-4xl md:text-6xl font-bold text-white dark:text-white light:text-black sky:text-primary mb-6 tracking-tight transition-colors"
         >
           {title}
         </motion.h2>
@@ -188,7 +188,7 @@ const UserReviews: React.FC<UserReviewsProps> = ({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-white/60 dark:text-white/60 light:text-black/60 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed transition-colors"
+          className="text-white/60 dark:text-white/60 light:text-black/60 sky:text-primary/60 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed transition-colors"
         >
           {subtitle.split('Axxon').map((part, i, arr) => (
             <React.Fragment key={i}>

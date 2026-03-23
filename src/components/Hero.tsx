@@ -134,12 +134,14 @@ const Hero: React.FC = () => {
 
             {/* Subtitle */}
             <div className="max-w-xl">
-              <SplitText 
-                text="At Axxon Digital, we turn ideas into impact. From strategy to execution, we help businesses grow faster through creativity, data, and consistency."
-                delay={0.9}
-                stagger={0.02}
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.9, ease: "easeOut" }}
                 className="text-white/80 dark:text-white/80 light:text-black/80 text-lg font-normal leading-relaxed transition-colors"
-              />
+              >
+                At Axxon Digital, we turn ideas into impact. From strategy to execution, we help businesses grow faster through creativity, data, and consistency.
+              </motion.p>
             </div>
           </div>
 

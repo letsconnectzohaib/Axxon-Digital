@@ -32,7 +32,7 @@ const Navbar: React.FC = () => {
       <div className="max-w-[1800px] mx-auto px-6 lg:px-12 flex justify-between items-center">
         <Link to="/" className="group flex items-center gap-2">
           <span className="text-2xl font-bold tracking-tighter text-white dark:text-white light:text-black transition-colors uppercase">
-            AXXON<span className="text-primary dark:text-white/40 light:text-black/30">DIGITAL</span>
+            AXXON<span className="text-primary blue:text-primary dark:text-gray-400 light:text-gray-500 transition-colors">DIGITAL</span>
           </span>
         </Link>
 
@@ -54,7 +54,7 @@ const Navbar: React.FC = () => {
             className="p-2 rounded-full bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 text-white dark:text-white light:text-black hover:scale-110 transition-all"
             aria-label="Toggle theme"
           >
-            {theme === 'light' ? <Sun size={18} /> : theme === 'blue' ? <Zap size={18} className="text-primary" /> : <Moon size={18} />}
+            {theme === 'light' ? <Sun size={18} className="text-amber-500" /> : theme === 'blue' ? <Zap size={18} className="text-primary" /> : <Moon size={18} className="text-slate-300" />}
           </button>
 
           <Link
@@ -71,7 +71,7 @@ const Navbar: React.FC = () => {
             onClick={cycleTheme}
             className="p-2 rounded-full bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 text-white dark:text-white light:text-black"
           >
-            {theme === 'light' ? <Sun size={18} /> : theme === 'blue' ? <Zap size={18} className="text-primary" /> : <Moon size={18} />}
+            {theme === 'light' ? <Sun size={18} className="text-amber-500" /> : theme === 'blue' ? <Zap size={18} className="text-primary" /> : <Moon size={18} className="text-slate-300" />}
           </button>
           <button className="text-white dark:text-white light:text-black" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X /> : <Menu />}

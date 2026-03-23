@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-type Theme = 'light' | 'blue' | 'dark';
+type Theme = 'light' | 'blue' | 'dark' | 'sky';
 
 interface ThemeContextType {
   theme: Theme;
@@ -24,14 +24,15 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   useEffect(() => {
     const root = window.document.documentElement;
-    root.classList.remove('light', 'blue', 'dark');
+    root.classList.remove('light', 'blue', 'dark', 'sky');
     root.classList.add(theme);
     localStorage.setItem('theme', theme);
   }, [theme]);
 
   const cycleTheme = () => {
     setTheme((prev) => {
-      if (prev === 'light') return 'blue';
+      if (prev === 'light') return 'sky';
+      if (prev === 'sky') return 'blue';
       if (prev === 'blue') return 'dark';
       return 'light';
     });

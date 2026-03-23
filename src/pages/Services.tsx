@@ -54,9 +54,9 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <div className="bg-[#050510] dark:bg-[#0A0A0A] light:bg-[#F8F9FA] pt-32 transition-colors duration-300">
+    <div className="bg-[#050510] dark:bg-[#0A0A0A] light:bg-[#F8F9FA] sky:bg-white pt-32 transition-colors duration-300">
       <section className="py-20 px-6 lg:px-12 max-w-[1800px] mx-auto">
-        <h1 className="text-5xl md:text-7xl font-medium text-white dark:text-white light:text-black mb-16 transition-colors">Our Expertise</h1>
+        <h1 className="text-5xl md:text-7xl font-medium text-white dark:text-white light:text-black sky:text-primary mb-16 transition-colors">Our Expertise</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {expertise.map((item, i) => (
             <motion.div
@@ -64,7 +64,7 @@ const Services: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="p-10 rounded-3xl bg-white/5 dark:bg-white/5 light:bg-white border border-white/10 dark:border-white/10 light:border-black/10 transition-colors"
+              className="p-10 rounded-3xl bg-white/5 dark:bg-white/5 light:bg-white sky:bg-white border border-white/10 dark:border-white/10 light:border-black/10 sky:border-primary/10 transition-colors"
             >
               <div className="flex items-center gap-4 mb-6">
                 <motion.div 
@@ -77,19 +77,19 @@ const Services: React.FC = () => {
                     stiffness: 120,
                     damping: 15
                   }}
-                  className="w-12 h-12 rounded-xl bg-white/10 dark:bg-white/10 light:bg-black/10 flex items-center justify-center group-hover:bg-white/20 dark:group-hover:bg-white/20 light:group-hover:bg-black/20 transition-colors"
+                  className="w-12 h-12 rounded-xl bg-white/10 dark:bg-white/10 light:bg-black/10 sky:bg-primary/10 flex items-center justify-center group-hover:bg-white/20 dark:group-hover:bg-white/20 light:group-hover:bg-black/20 sky:group-hover:bg-primary/20 transition-colors"
                 >
-                  <item.icon className="text-white dark:text-white light:text-black group-hover:scale-110 transition-transform transition-colors" size={24} />
+                  <item.icon className="text-white dark:text-white light:text-black sky:text-primary group-hover:scale-110 transition-transform transition-colors" size={24} />
                 </motion.div>
-                <span className="text-white/20 dark:text-white/20 light:text-black/20 font-mono transition-colors">{item.id}</span>
+                <span className="text-white/20 dark:text-white/20 light:text-black/20 sky:text-primary/20 font-mono transition-colors">{item.id}</span>
               </div>
-              <h3 className="text-2xl font-medium text-white dark:text-white light:text-black mb-4 transition-colors">{item.title}</h3>
-              <p className="text-white/60 dark:text-white/60 light:text-black/60 mb-8 leading-relaxed transition-colors">{item.desc}</p>
+              <h3 className="text-2xl font-medium text-white dark:text-white light:text-black sky:text-primary mb-4 transition-colors">{item.title}</h3>
+              <p className="text-white/60 dark:text-white/60 light:text-black/60 sky:text-primary/60 mb-8 leading-relaxed transition-colors">{item.desc}</p>
               <div className="space-y-3">
-                <p className="text-sm font-medium text-white/40 dark:text-white/40 light:text-black/40 uppercase tracking-wider transition-colors">Includes:</p>
+                <p className="text-sm font-medium text-white/40 dark:text-white/40 light:text-black/40 sky:text-primary/40 uppercase tracking-wider transition-colors">Includes:</p>
                 {item.includes.map((inc, j) => (
-                  <div key={j} className="flex items-center gap-3 text-white/80 dark:text-white/80 light:text-black/80 transition-colors">
-                    <div className="w-1.5 h-1.5 rounded-full bg-white/30 dark:bg-white/30 light:bg-black/30 transition-colors" />
+                  <div key={j} className="flex items-center gap-3 text-white/80 dark:text-white/80 light:text-black/80 sky:text-primary/80 transition-colors">
+                    <div className="w-1.5 h-1.5 rounded-full bg-white/30 dark:bg-white/30 light:bg-black/30 sky:bg-primary/30 transition-colors" />
                     {inc}
                   </div>
                 ))}
@@ -99,12 +99,12 @@ const Services: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-24 bg-white/5 dark:bg-white/5 light:bg-black/5 transition-colors">
+      <section className="py-24 bg-white/5 dark:bg-white/5 light:bg-black/5 sky:bg-primary/5 transition-colors">
         <div className="max-w-[1800px] mx-auto px-6 lg:px-12">
-          <h2 className="text-3xl font-medium text-white dark:text-white light:text-black mb-12 text-center transition-colors">Industries We Serve</h2>
+          <h2 className="text-3xl font-medium text-white dark:text-white light:text-black sky:text-primary mb-12 text-center transition-colors">Industries We Serve</h2>
           <div className="flex flex-wrap justify-center gap-4">
             {industries.map((ind, i) => (
-              <span key={i} className="px-6 py-3 rounded-full bg-[#050510] dark:bg-[#0A0A0A] light:bg-white border border-white/10 dark:border-white/10 light:border-black/10 text-white/80 dark:text-white/80 light:text-black/80 hover:border-white/40 dark:hover:border-white/40 light:hover:border-black/40 transition-colors cursor-default transition-colors">
+              <span key={i} className="px-6 py-3 rounded-full bg-[#050510] dark:bg-[#0A0A0A] light:bg-white sky:bg-white border border-white/10 dark:border-white/10 light:border-black/10 sky:border-primary/10 text-white/80 dark:text-white/80 light:text-black/80 sky:text-primary/80 hover:border-white/40 dark:hover:border-white/40 light:hover:border-black/40 sky:hover:border-primary/40 transition-colors cursor-default transition-colors">
                 {ind}
               </span>
             ))}

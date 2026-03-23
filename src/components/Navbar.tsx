@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Sun, Moon, Zap } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import MagneticButton from './MagneticButton';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -57,12 +58,12 @@ const Navbar: React.FC = () => {
             {theme === 'light' ? <Sun size={18} className="text-amber-500" /> : theme === 'blue' ? <Zap size={18} className="text-primary" /> : <Moon size={18} className="text-slate-300" />}
           </button>
 
-          <Link
-            to="/contact"
-            className="px-5 py-2 rounded-full bg-primary dark:bg-primary light:bg-black text-white dark:text-white light:text-white text-sm font-medium hover:scale-105 transition-transform shadow-[0_0_20px_rgba(59,130,246,0.3)]"
+          <MagneticButton
+            href="/contact"
+            className="px-5 py-2 rounded-full bg-primary dark:bg-primary light:bg-black text-white dark:text-white light:text-white text-sm font-medium transition-transform shadow-[0_0_20px_rgba(59,130,246,0.3)]"
           >
             Get Started
-          </Link>
+          </MagneticButton>
         </div>
 
         {/* Mobile Menu Toggle */}

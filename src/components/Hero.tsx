@@ -4,6 +4,7 @@ import { Sparkles, ArrowRight } from 'lucide-react';
 import Hls from 'hls.js';
 
 import { useTheme } from '../context/ThemeContext';
+import MagneticButton from './MagneticButton';
 
 interface BlurInProps {
   children: React.ReactNode;
@@ -133,44 +134,26 @@ const Hero: React.FC = () => {
             </h1>
 
             {/* Subtitle */}
-            <div className="max-w-xl">
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.9, ease: "easeOut" }}
-                className="text-white/80 dark:text-white/80 light:text-black/80 text-lg font-normal leading-relaxed transition-colors"
-              >
-                At Axxon Digital, we turn ideas into impact. From strategy to execution, we help businesses grow faster through creativity, data, and consistency.
-              </motion.p>
+            <div className="max-w-xl text-white/80 dark:text-white/80 light:text-black/80 text-lg font-normal leading-relaxed transition-colors">
+              <SplitText 
+                text="At Axxon Digital, we turn ideas into impact. From strategy to execution, we help businesses grow faster through creativity, data, and consistency." 
+                delay={0.9}
+                stagger={0.02}
+                duration={0.6}
+              />
             </div>
           </div>
 
           {/* CTA Buttons */}
           <BlurIn delay={1.2} duration={0.6}>
             <div className="flex flex-wrap gap-4">
-              <motion.a 
-                href="/contact"
-                whileHover={{ 
-                  scale: 1.05, 
-                  boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.1)" 
-                }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-primary dark:bg-white light:bg-black text-white dark:text-black light:text-white font-medium transition-colors shadow-[0_0_20px_rgba(59,130,246,0.3)] dark:shadow-none"
-              >
+              <MagneticButton href="/contact" className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-primary dark:bg-white light:bg-black text-white dark:text-black light:text-white font-medium transition-colors shadow-[0_0_20px_rgba(59,130,246,0.3)] dark:shadow-none">
                 🚀 Let’s Grow Your Brand
                 <ArrowRight className="w-4 h-4" />
-              </motion.a>
-              <motion.a 
-                href="/contact"
-                whileHover={{ 
-                  scale: 1.05, 
-                  backgroundColor: theme === 'blue' ? "rgba(59, 130, 246, 0.15)" : theme === 'dark' ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.05)"
-                }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 rounded-full bg-primary/20 dark:bg-white/20 light:bg-black/10 backdrop-blur-sm text-primary dark:text-white light:text-black font-medium transition-colors border border-primary/30 dark:border-white/10"
-              >
+              </MagneticButton>
+              <MagneticButton href="/contact" className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-primary/20 dark:bg-white/20 light:bg-black/10 backdrop-blur-sm text-primary dark:text-white light:text-black font-medium transition-colors border border-primary/30 dark:border-white/10">
                 📞 Book a Free Strategy Call
-              </motion.a>
+              </MagneticButton>
             </div>
           </BlurIn>
         </div>

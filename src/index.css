@@ -10,7 +10,6 @@
 }
 
 @variant light (&:where(.light, .light *));
-@variant sky (&:where(.sky, .sky *));
 @variant blue (&:where(.blue, .blue *));
 @variant dark (&:where(.dark, .dark *));
 
@@ -21,10 +20,22 @@
   body {
     @apply bg-[#050510] text-white transition-colors duration-300;
     @apply light:bg-[#F8F9FA] light:text-[#1A1A1A];
-    @apply sky:bg-white sky:text-primary;
     @apply blue:bg-[#050510] blue:text-white;
     @apply dark:bg-[#0A0A0A] dark:text-[#E0E0E0];
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-[#050510] dark:bg-[#0A0A0A] light:bg-[#F8F9FA];
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-white/20 dark:bg-white/20 light:bg-black/20 rounded-full hover:bg-white/40 dark:hover:bg-white/40 light:hover:bg-black/40 transition-colors;
   }
 }

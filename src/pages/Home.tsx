@@ -6,6 +6,10 @@ import TrustBanner from '../components/TrustBanner';
 import UserReviews from '../components/UserReviews';
 
 import Marquee from '../components/Marquee';
+import AnimatedCounter from '../components/AnimatedCounter';
+import MagneticButton from '../components/MagneticButton';
+import TextReveal from '../components/TextReveal';
+import TiltCard from '../components/TiltCard';
 
 const Home: React.FC = () => {
   const services = [
@@ -39,28 +43,30 @@ const Home: React.FC = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-medium mb-6 text-white dark:text-white light:text-black transition-colors">
-              Marketing Solutions for Businesses Ready to Grow
+              <TextReveal text="Marketing Solutions for Businesses Ready to Grow" />
             </h2>
             <p className="text-white/60 dark:text-white/60 light:text-black/60 text-lg mb-8 leading-relaxed transition-colors">
               We work with startups, small businesses, and growing brands that want to build a strong online presence and convert visitors into loyal customers.
             </p>
             <div className="flex flex-wrap gap-4">
-              <a href="/contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white blue:bg-primary dark:bg-white light:bg-black text-black blue:text-white dark:text-black light:text-white font-medium hover:scale-105 transition-all">
+              <MagneticButton href="/contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white blue:bg-primary dark:bg-white light:bg-black text-black blue:text-white dark:text-black light:text-white font-medium transition-all">
                 <Rocket size={18} /> Let’s Grow Your Brand
-              </a>
-              <a href="/contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 dark:bg-white/10 light:bg-black/5 text-white dark:text-white light:text-black font-medium hover:scale-105 transition-all">
+              </MagneticButton>
+              <MagneticButton href="/contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 dark:bg-white/10 light:bg-black/5 text-white dark:text-white light:text-black font-medium transition-all">
                 <Phone size={18} /> Book a Free Strategy Call
-              </a>
+              </MagneticButton>
             </div>
           </motion.div>
           <div className="grid grid-cols-2 gap-4">
-            <div className="aspect-square rounded-2xl bg-primary/5 dark:bg-white/5 light:bg-black/5 border border-primary/10 dark:border-white/10 light:border-black/10 p-8 flex flex-col justify-end transition-colors group hover:bg-primary dark:hover:bg-white light:hover:bg-black transition-all">
-              <span className="text-5xl font-bold tracking-tighter text-white dark:text-white light:text-black group-hover:text-white dark:group-hover:text-black light:group-hover:text-white mb-2 transition-colors font-mono">300%</span>
-              <span className="text-white/40 dark:text-white/40 light:text-black/40 group-hover:text-white/60 dark:group-hover:text-black/60 light:group-hover:text-white/60 text-xs uppercase tracking-widest font-medium transition-colors">Engagement Growth</span>
+            <div className="aspect-square rounded-2xl bg-primary/5 dark:bg-white/5 light:bg-black/5 border border-primary/10 dark:border-white/10 light:border-black/10 p-8 flex flex-col justify-end transition-colors group hover:bg-primary dark:hover:bg-white light:hover:bg-black transition-all relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <span className="text-5xl font-bold tracking-tighter text-white dark:text-white light:text-black group-hover:text-white dark:group-hover:text-black light:group-hover:text-white mb-2 transition-colors font-mono relative z-10"><AnimatedCounter end={300} suffix="%" /></span>
+              <span className="text-white/40 dark:text-white/40 light:text-black/40 group-hover:text-white/80 dark:group-hover:text-black/80 light:group-hover:text-white/80 text-xs uppercase tracking-widest font-medium transition-colors relative z-10">Engagement Growth</span>
             </div>
-            <div className="aspect-square rounded-2xl bg-primary/5 dark:bg-white/5 light:bg-black/5 border border-primary/10 dark:border-white/10 light:border-black/10 p-8 flex flex-col justify-end mt-8 transition-colors group hover:bg-primary dark:hover:bg-white light:hover:bg-black transition-all">
-              <span className="text-5xl font-bold tracking-tighter text-white dark:text-white light:text-black group-hover:text-white dark:group-hover:text-black light:group-hover:text-white mb-2 transition-colors font-mono">4x</span>
-              <span className="text-white/40 dark:text-white/40 light:text-black/40 group-hover:text-white/60 dark:group-hover:text-black/60 light:group-hover:text-white/60 text-xs uppercase tracking-widest font-medium transition-colors">ROAS Achieved</span>
+            <div className="aspect-square rounded-2xl bg-primary/5 dark:bg-white/5 light:bg-black/5 border border-primary/10 dark:border-white/10 light:border-black/10 p-8 flex flex-col justify-end mt-8 transition-colors group hover:bg-primary dark:hover:bg-white light:hover:bg-black transition-all relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <span className="text-5xl font-bold tracking-tighter text-white dark:text-white light:text-black group-hover:text-white dark:group-hover:text-black light:group-hover:text-white mb-2 transition-colors font-mono relative z-10"><AnimatedCounter end={4} suffix="x" /></span>
+              <span className="text-white/40 dark:text-white/40 light:text-black/40 group-hover:text-white/80 dark:group-hover:text-black/80 light:group-hover:text-white/80 text-xs uppercase tracking-widest font-medium transition-colors relative z-10">ROAS Achieved</span>
             </div>
           </div>
         </div>
@@ -74,21 +80,32 @@ const Home: React.FC = () => {
 
         <div className="max-w-[1800px] mx-auto px-6 lg:px-12 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-medium text-white dark:text-white light:text-black mb-4 transition-colors">Our Services</h2>
+            <h2 className="text-3xl md:text-4xl font-medium text-white dark:text-white light:text-black mb-4 transition-colors">
+              <TextReveal text="Our Services" className="justify-center" />
+            </h2>
             <p className="text-white/40 dark:text-white/40 light:text-black/40 transition-colors">Comprehensive digital solutions for modern brands.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[250px]">
             {services.map((service, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="p-8 rounded-2xl bg-[#050510] dark:bg-[#0A0A0A] light:bg-white border border-white/10 dark:border-white/10 light:border-black/10 hover:border-white/30 dark:hover:border-white/30 light:hover:border-black/30 transition-all group"
+                transition={{ delay: i * 0.1, duration: 0.4 }}
+                className={`${
+                  i === 0 ? 'md:col-span-2 md:row-span-2' : 
+                  i === 1 || i === 4 ? 'md:col-span-2' : 
+                  'md:col-span-1'
+                }`}
               >
-                <h3 className="text-xl font-medium text-white dark:text-white light:text-black mb-4 transition-colors">{service.title}</h3>
-                <p className="text-white/60 dark:text-white/60 light:text-black/60 leading-relaxed transition-colors">{service.desc}</p>
+                <TiltCard className="h-full">
+                  <div className="p-8 rounded-3xl bg-[#050510] dark:bg-[#0A0A0A] light:bg-white border border-white/10 dark:border-white/10 light:border-black/10 hover:border-white/30 dark:hover:border-white/30 light:hover:border-black/30 transition-all group flex flex-col justify-between relative overflow-hidden h-full">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <h3 className={`font-medium text-white dark:text-white light:text-black mb-4 transition-colors relative z-10 ${i === 0 ? 'text-4xl' : 'text-xl'}`}>{service.title}</h3>
+                    <p className={`text-white/60 dark:text-white/60 light:text-black/60 leading-relaxed transition-colors relative z-10 ${i === 0 ? 'text-xl' : 'text-base'}`}>{service.desc}</p>
+                  </div>
+                </TiltCard>
               </motion.div>
             ))}
           </div>
@@ -106,7 +123,9 @@ const Home: React.FC = () => {
       {/* Why Choose Us */}
       <section className="py-24 px-6 lg:px-12 max-w-[1800px] mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-medium text-white dark:text-white light:text-black mb-4 transition-colors">Why Choose Axxon Digital</h2>
+          <h2 className="text-3xl md:text-4xl font-medium text-white dark:text-white light:text-black mb-4 transition-colors">
+            <TextReveal text="Why Choose Axxon Digital" className="justify-center" />
+          </h2>
           <p className="text-white/60 dark:text-white/60 light:text-black/60 max-w-2xl mx-auto transition-colors">
             We don’t believe in one size fits all marketing. Every strategy is tailored to your business goals.
           </p>
@@ -149,9 +168,9 @@ const Home: React.FC = () => {
           <h2 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-white dark:text-white light:text-black mb-12 transition-colors uppercase">
             Ready to <br /> <span className="font-serif italic font-medium">Scale?</span>
           </h2>
-          <a href="/contact" className="inline-flex items-center gap-4 px-12 py-6 rounded-full bg-primary dark:bg-white light:bg-black text-white dark:text-black light:text-white text-xl font-bold hover:scale-110 transition-all group shadow-[0_0_30px_rgba(59,130,246,0.4)] dark:shadow-none">
+          <MagneticButton href="/contact" className="inline-flex items-center gap-4 px-12 py-6 rounded-full bg-primary dark:bg-white light:bg-black text-white dark:text-black light:text-white text-xl font-bold transition-all group shadow-[0_0_30px_rgba(59,130,246,0.4)] dark:shadow-none">
             Let’s build something amazing <ArrowRight size={32} className="group-hover:translate-x-2 transition-transform" />
-          </a>
+          </MagneticButton>
         </motion.div>
         
         {/* Background Text (Recipe 5) */}

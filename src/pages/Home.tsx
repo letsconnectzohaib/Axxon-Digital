@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { CheckCircle2, Rocket, Phone, ArrowRight } from 'lucide-react';
+import { CheckCircle2, Rocket, Phone, ArrowRight, Share2, Palette, TrendingUp, Search, Globe, UserCheck } from 'lucide-react';
 import Hero from '../components/Hero';
 import TrustBanner from '../components/TrustBanner';
 import UserReviews from '../components/UserReviews';
@@ -13,12 +13,48 @@ import TiltCard from '../components/TiltCard';
 
 const Home: React.FC = () => {
   const services = [
-    { title: "Social Media Marketing", desc: "From reels to reach, we create content that connects and converts." },
-    { title: "Branding & Design", desc: "Because your first impression should be unforgettable." },
-    { title: "Performance Marketing", desc: "Run campaigns that deliver real ROI." },
-    { title: "SEO & Content Marketing", desc: "Rank higher, attract more, and stay relevant." },
-    { title: "Website Development", desc: "Build sleek, functional, and fast websites that sell." },
-    { title: "Pay per click Advertising (PPC)", desc: "Run targeted ads that bring fast traffic, leads and sales." }
+    {
+      id: "01",
+      title: "Social Media Marketing",
+      icon: Share2,
+      desc: "We build your brand where your audience lives — Instagram, Facebook, TikTok, and LinkedIn. From viral reels to ad campaigns, our strategies turn engagement into conversions.",
+      includes: ["Social media strategy & management", "Ad campaigns (Meta, TikTok, LinkedIn)", "Content planning & design"],
+    },
+    {
+      id: "02",
+      title: "Branding & Creative Design",
+      icon: Palette,
+      desc: "Your brand identity speaks before you do. We design logos, visuals, and campaigns that make your brand unforgettable.",
+      includes: ["Logo & brand kit design", "Ad banners, videos, and social visuals", "Brand storytelling strategy"],
+    },
+    {
+      id: "03",
+      title: "Performance Marketing",
+      icon: TrendingUp,
+      desc: "Turn clicks into customers with powerful ad strategies. We handle your campaigns from setup to reporting — optimizing for ROI every step of the way.",
+      includes: ["Meta & Google Ads", "Conversion tracking", "A/B testing & performance reports"],
+    },
+    {
+      id: "04",
+      title: "SEO & Content Marketing",
+      icon: Search,
+      desc: "Get found when it matters most. Our SEO and content experts boost your visibility across Google and help build lasting organic traffic.",
+      includes: ["On-page & off-page SEO", "Blog writing & keyword optimization", "Website audit & technical SEO"],
+    },
+    {
+      id: "05",
+      title: "Website Development",
+      icon: Globe,
+      desc: "Your website is your digital storefront — we make it stunning, responsive, and fast.",
+      includes: ["Business websites & landing pages", "eCommerce stores", "UX/UI design & maintenance"],
+    },
+    {
+      id: "06",
+      title: "Corporate & Personal Branding",
+      icon: UserCheck,
+      desc: "Stand out as a professional or company. We build your online reputation across LinkedIn, social media, and search results.",
+      includes: ["Personal branding strategy", "Visual identity setup", "Content & engagement plan"],
+    }
   ];
 
   const benefits = [
@@ -85,7 +121,7 @@ const Home: React.FC = () => {
             </h2>
             <p className="text-white/40 dark:text-white/40 light:text-black/40 transition-colors">Comprehensive digital solutions for modern brands.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[250px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[minmax(300px,auto)]">
             {services.map((service, i) => (
               <motion.div
                 key={i}
@@ -93,17 +129,29 @@ const Home: React.FC = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.4 }}
-                className={`${
-                  i === 0 ? 'md:col-span-2 md:row-span-2' : 
-                  i === 1 || i === 4 ? 'md:col-span-2' : 
-                  'md:col-span-1'
-                }`}
               >
                 <TiltCard className="h-full">
                   <div className="p-8 rounded-3xl bg-[#050510] dark:bg-[#0A0A0A] light:bg-white border border-white/10 dark:border-white/10 light:border-black/10 hover:border-white/30 dark:hover:border-white/30 light:hover:border-black/30 transition-all group flex flex-col justify-between relative overflow-hidden h-full">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <h3 className={`font-medium text-white dark:text-white light:text-black mb-4 transition-colors relative z-10 ${i === 0 ? 'text-4xl' : 'text-xl'}`}>{service.title}</h3>
-                    <p className={`text-white/60 dark:text-white/60 light:text-black/60 leading-relaxed transition-colors relative z-10 ${i === 0 ? 'text-xl' : 'text-base'}`}>{service.desc}</p>
+                    <div className="relative z-10">
+                      <div className="flex items-center gap-4 mb-6">
+                        <div className="w-12 h-12 rounded-xl bg-white/10 dark:bg-white/10 light:bg-black/10 flex items-center justify-center group-hover:bg-white/20 dark:group-hover:bg-white/20 light:group-hover:bg-black/20 transition-colors">
+                          <service.icon className="text-white dark:text-white light:text-black group-hover:scale-110 transition-transform transition-colors" size={24} />
+                        </div>
+                        <span className="text-white/20 dark:text-white/20 light:text-black/20 font-mono transition-colors">{service.id}</span>
+                      </div>
+                      <h3 className="font-medium text-white dark:text-white light:text-black mb-4 transition-colors relative z-10 text-2xl">{service.title}</h3>
+                      <p className="text-white/60 dark:text-white/60 light:text-black/60 leading-relaxed transition-colors relative z-10 text-base mb-8">{service.desc}</p>
+                    </div>
+                    <div className="space-y-3 relative z-10 mt-auto">
+                      <p className="text-sm font-medium text-white/40 dark:text-white/40 light:text-black/40 uppercase tracking-wider transition-colors">Includes:</p>
+                      {service.includes.map((inc, j) => (
+                        <div key={j} className="flex items-start gap-3 text-white/80 dark:text-white/80 light:text-black/80 transition-colors text-sm">
+                          <div className="w-1.5 h-1.5 rounded-full bg-white/30 dark:bg-white/30 light:bg-black/30 transition-colors mt-1.5 shrink-0" />
+                          <span>{inc}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </TiltCard>
               </motion.div>

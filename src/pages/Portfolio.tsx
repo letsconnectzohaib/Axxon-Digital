@@ -13,10 +13,10 @@ const Portfolio: React.FC = () => {
     { title: "Healthcare SEO", stat: "220%", desc: "Boosted website traffic using strategic SEO.", category: "SEO", image: "https://picsum.photos/seed/health/800/600" },
     { title: "Real Estate Leads", stat: "Qualified", desc: "Generated high-quality leads within the first month.", category: "Marketing", image: "https://picsum.photos/seed/realestate/800/600" },
     { title: "Tech Startup Branding", stat: "100%", desc: "Complete brand overhaul and identity design.", category: "Branding", image: "https://picsum.photos/seed/tech/800/600" },
-    { title: "E-Commerce Redesign", stat: "150%", desc: "Increased conversion rate with a new website.", category: "Web Dev", image: "https://picsum.photos/seed/ecommerce/800/600" }
+    { title: "E-Commerce Redesign", stat: "150%", desc: "Increased conversion rate with a new website.", category: "Web Development", image: "https://picsum.photos/seed/ecommerce/800/600" }
   ];
 
-  const categories = ['All', 'Marketing', 'Performance', 'SEO', 'Branding', 'Web Dev'];
+  const categories = ['All', 'Marketing', 'Performance', 'SEO', 'Branding', 'Web Development'];
 
   const filteredCases = filter === 'All' ? cases : cases.filter(c => c.category === filter);
 
@@ -35,13 +35,20 @@ const Portfolio: React.FC = () => {
             <MagneticButton
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all relative overflow-hidden ${
                 filter === cat 
-                  ? 'bg-primary dark:bg-white light:bg-black text-white dark:text-black light:text-white shadow-lg' 
+                  ? 'text-white dark:text-black light:text-white shadow-lg' 
                   : 'bg-white/5 dark:bg-white/5 light:bg-black/5 text-white/60 dark:text-white/60 light:text-black/60 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-black/10'
               }`}
             >
-              {cat}
+              {filter === cat && (
+                <motion.div
+                  layoutId="portfolio-active-filter"
+                  className="absolute inset-0 bg-primary dark:bg-white light:bg-black z-0"
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                />
+              )}
+              <span className="relative z-10">{cat}</span>
             </MagneticButton>
           ))}
         </div>

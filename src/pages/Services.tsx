@@ -65,19 +65,29 @@ const Services: React.FC = () => {
   return (
     <div className="bg-[#050510] dark:bg-[#0A0A0A] light:bg-[#F8F9FA] pt-32 transition-colors duration-300">
       <section className="py-20 px-6 lg:px-12 max-w-[1800px] mx-auto">
-        <h1 className="text-5xl md:text-7xl font-medium text-white dark:text-white light:text-black mb-16 transition-colors">
-          <TextReveal text="Our Expertise" />
-        </h1>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(300px,auto)]">
-          {expertise.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.4 }}
-              className={`${i === 0 || i === 3 ? 'md:col-span-2' : 'md:col-span-1'}`}
-            >
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
+          <div className="lg:w-1/3">
+            <div className="sticky top-40">
+              <h1 className="text-5xl md:text-7xl font-medium text-white dark:text-white light:text-black mb-6 transition-colors leading-tight">
+                <TextReveal text="Our Expertise" />
+              </h1>
+              <p className="text-xl text-white/60 dark:text-white/60 light:text-black/60 transition-colors mb-8 leading-relaxed">
+                We deliver end-to-end digital solutions designed to elevate your brand, engage your audience, and drive measurable growth.
+              </p>
+              <div className="hidden lg:block w-24 h-1 bg-primary/50 dark:bg-white/20 light:bg-black/20 rounded-full" />
+            </div>
+          </div>
+          
+          <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6 auto-rows-[minmax(300px,auto)]">
+            {expertise.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: (i % 2) * 0.1, duration: 0.6, type: "spring", stiffness: 100 }}
+                className={`${i === 0 || i === 3 ? 'md:col-span-2' : 'md:col-span-1'}`}
+              >
               <TiltCard className="h-full">
                 <HoverImageReveal imageSrc={item.image} className="h-full">
                   <div className="p-10 rounded-3xl bg-white/5 dark:bg-white/5 light:bg-white border border-white/10 dark:border-white/10 light:border-black/10 transition-colors group relative overflow-hidden flex flex-col justify-between h-full">
@@ -117,6 +127,7 @@ const Services: React.FC = () => {
               </TiltCard>
             </motion.div>
           ))}
+          </div>
         </div>
       </section>
 

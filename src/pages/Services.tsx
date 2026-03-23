@@ -66,7 +66,13 @@ const Services: React.FC = () => {
       <section className="py-20 px-6 lg:px-12 max-w-[1800px] mx-auto">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
           <div className="lg:w-1/3">
-            <div className="sticky top-40">
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
+              className="sticky top-40"
+            >
               <h1 className="text-5xl md:text-7xl font-medium text-white dark:text-white light:text-black mb-6 transition-colors leading-tight">
                 <TextReveal text="Our Expertise" />
               </h1>
@@ -74,7 +80,7 @@ const Services: React.FC = () => {
                 We deliver end-to-end digital solutions designed to elevate your brand, engage your audience, and drive measurable growth.
               </p>
               <div className="hidden lg:block w-24 h-1 bg-primary/50 dark:bg-white/20 light:bg-black/20 rounded-full" />
-            </div>
+            </motion.div>
           </div>
           
           <div className="lg:w-2/3 flex flex-col gap-8">
@@ -87,7 +93,7 @@ const Services: React.FC = () => {
                 transition={{ delay: i * 0.1, duration: 0.6, type: "spring", stiffness: 100 }}
               >
               <TiltCard className="w-full">
-                <div className="p-8 md:p-12 rounded-3xl bg-white/5 dark:bg-white/5 light:bg-white border border-white/10 dark:border-white/10 light:border-black/10 transition-colors group relative overflow-hidden flex flex-col md:flex-row gap-8 items-start md:items-center justify-between w-full">
+                <div className="p-8 md:p-12 rounded-3xl bg-white/5 dark:bg-white/5 light:bg-white border border-white/10 dark:border-white/10 light:border-black/10 transition-all duration-300 group relative overflow-hidden flex flex-col md:flex-row gap-8 items-start md:items-center justify-between w-full hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 dark:hover:shadow-white/5 light:hover:shadow-black/5 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-black/5">
                   <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   <div className="relative z-10 flex-1">

@@ -35,10 +35,10 @@ const Portfolio: React.FC = () => {
             <MagneticButton
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all relative overflow-hidden ${
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all relative overflow-hidden border ${
                 filter === cat 
-                  ? 'text-white dark:text-black light:text-white shadow-lg' 
-                  : 'bg-white/5 dark:bg-white/5 light:bg-black/5 text-white/60 dark:text-white/60 light:text-black/60 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-black/10'
+                  ? 'border-primary/50 text-white dark:text-black light:text-white shadow-[0_0_15px_rgba(0,102,255,0.3)] dark:shadow-[0_0_15px_rgba(255,255,255,0.3)] light:shadow-[0_0_15px_rgba(0,0,0,0.2)]' 
+                  : 'border-white/10 dark:border-white/10 light:border-black/10 bg-white/5 dark:bg-white/5 light:bg-black/5 text-white/60 dark:text-white/60 light:text-black/60 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-black/10 hover:border-white/30 dark:hover:border-white/30 light:hover:border-black/30'
               }`}
             >
               {filter === cat && (

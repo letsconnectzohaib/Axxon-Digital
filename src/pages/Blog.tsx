@@ -10,10 +10,10 @@ const Blog: React.FC = () => {
   const [filter, setFilter] = useState('All');
 
   const posts = [
-    { title: "Top 5 Social Media Trends to Watch in 2025", category: "Social Media", date: "Mar 15, 2024", image: "https://picsum.photos/seed/social/800/600" },
-    { title: "Consistency Beats Talent in Digital Marketing", category: "Strategy", date: "Mar 10, 2024", image: "https://picsum.photos/seed/strategy/800/600" },
-    { title: "How to Build Trust Online Through Branding", category: "Branding", date: "Mar 05, 2024", image: "https://picsum.photos/seed/brand/800/600" },
-    { title: "SEO vs Paid Ads: Which Works Better for Small Businesses?", category: "Marketing", date: "Feb 28, 2024", image: "https://picsum.photos/seed/seo/800/600" }
+    { title: "Top 5 Social Media Trends to Watch in 2025", category: "Social Media", date: "Mar 15, 2024", image: "https://picsum.photos/seed/social/800/600", preview: "Discover the latest strategies and platform updates that will dominate the social media landscape next year." },
+    { title: "Consistency Beats Talent in Digital Marketing", category: "Strategy", date: "Mar 10, 2024", image: "https://picsum.photos/seed/strategy/800/600", preview: "Why showing up every day and maintaining a steady brand voice is more important than occasional viral hits." },
+    { title: "How to Build Trust Online Through Branding", category: "Branding", date: "Mar 05, 2024", image: "https://picsum.photos/seed/brand/800/600", preview: "Learn the core principles of establishing credibility and connecting with your audience on a deeper level." },
+    { title: "SEO vs Paid Ads: Which Works Better for Small Businesses?", category: "Marketing", date: "Feb 28, 2024", image: "https://picsum.photos/seed/seo/800/600", preview: "A comprehensive breakdown of organic vs paid strategies to help you allocate your marketing budget effectively." }
   ];
 
   const categories = ['All', ...Array.from(new Set(posts.map(post => post.category)))];
@@ -75,9 +75,14 @@ const Blog: React.FC = () => {
                           <Calendar size={12} /> {post.date}
                         </div>
                       </div>
-                      <h3 className={`font-medium text-white dark:text-white light:text-black mb-8 group-hover:text-white dark:group-hover:text-white light:group-hover:text-black transition-colors ${i === 0 ? 'text-4xl leading-tight' : 'text-2xl'}`}>{post.title}</h3>
+                      <h3 className={`font-medium text-white dark:text-white light:text-black mb-4 group-hover:text-white dark:group-hover:text-white light:group-hover:text-black transition-colors ${i === 0 ? 'text-4xl leading-tight' : 'text-2xl'}`}>{post.title}</h3>
+                      <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-500 ease-in-out">
+                        <p className="overflow-hidden text-white/60 dark:text-white/60 light:text-black/60 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                          {post.preview}
+                        </p>
+                      </div>
                     </div>
-                    <div className="relative z-10 flex items-center gap-2 text-white dark:text-white light:text-black font-medium group-hover:gap-4 transition-all transition-colors mt-auto">
+                    <div className="relative z-10 flex items-center gap-2 text-white dark:text-white light:text-black font-medium group-hover:gap-4 transition-all transition-colors mt-6">
                       Read More <ArrowRight size={18} />
                     </div>
                   </div>

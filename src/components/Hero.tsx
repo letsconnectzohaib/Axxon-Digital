@@ -134,14 +134,19 @@ const Hero: React.FC = () => {
             </h1>
 
             {/* Subtitle */}
-            <div className="max-w-xl text-white/80 dark:text-white/80 light:text-black/80 text-lg font-normal leading-relaxed transition-colors">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.9 }}
+              className="max-w-xl text-white/80 dark:text-white/80 light:text-black/80 blue:text-white/80 sky:text-black/80 text-lg font-normal leading-relaxed transition-colors"
+            >
               <SplitText 
                 text="At Axxon Digital, we turn ideas into impact. From strategy to execution, we help businesses grow faster through creativity, data, and consistency." 
                 delay={0.9}
                 stagger={0.02}
                 duration={0.6}
               />
-            </div>
+            </motion.div>
           </div>
 
           {/* CTA Buttons */}

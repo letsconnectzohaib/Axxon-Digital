@@ -1,6 +1,3 @@
-<div align="center">
-  <img src="https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=2000&auto=format&fit=crop" alt="Axxon Digital Banner" width="100%" style="border-radius: 12px; margin-bottom: 20px;" />
-
   <h1>🚀 Axxon Digital</h1>
   <p><strong>A growth-driven digital marketing agency platform built for performance and scale.</strong></p>
 

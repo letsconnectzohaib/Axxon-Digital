@@ -6,7 +6,6 @@ import MagneticButton from '../components/MagneticButton';
 import TextReveal from '../components/TextReveal';
 import TiltCard from '../components/TiltCard';
 import HoverImageReveal from '../components/HoverImageReveal';
-import SEO from '../components/SEO';
 
 const Blog: React.FC = () => {
   const [filter, setFilter] = useState('All');

@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Send, Mail, Phone, MapPin, CheckCircle2, AlertCircle } from 'lucide-react';
 import TextReveal from '../components/TextReveal';
 import MagneticButton from '../components/MagneticButton';
-import FAQ from '../components/FAQ';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -190,7 +189,6 @@ const Contact: React.FC = () => {
           </motion.div>
         </div>
       </section>
-      <FAQ />
     </div>
   );
 };

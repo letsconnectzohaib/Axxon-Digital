@@ -2,9 +2,8 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { CheckCircle2, Rocket, Phone, ArrowRight, Share2, Palette, TrendingUp, Search, Globe, UserCheck } from 'lucide-react';
 import Hero from '../components/Hero';
-import ImpactDashboard from '../components/ImpactDashboard';
-import PhilosophyProcess from '../components/PhilosophyProcess';
-import LiveStatus from '../components/LiveStatus';
+import TrustBanner from '../components/TrustBanner';
+import UserReviews from '../components/UserReviews';
 
 import Marquee from '../components/Marquee';
 import AnimatedCounter from '../components/AnimatedCounter';
@@ -69,7 +68,7 @@ const Home: React.FC = () => {
   return (
     <div className="bg-[#050510] dark:bg-[#0A0A0A] light:bg-[#F8F9FA] transition-colors duration-300">
       <Hero />
-      <ImpactDashboard />
+      <TrustBanner />
 
       {/* Who We Help */}
       <section className="py-24 px-6 lg:px-12 max-w-[1800px] mx-auto">
@@ -203,11 +202,8 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Philosophy & Process Section */}
-      <PhilosophyProcess />
-
-      {/* Live Status Section */}
-      <LiveStatus />
+      {/* User Reviews Section */}
+      <UserReviews />
 
       {/* Final CTA (Recipe 2) */}
       <section className="py-48 text-center px-6 relative overflow-hidden">

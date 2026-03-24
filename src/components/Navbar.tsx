@@ -32,7 +32,7 @@ const Navbar: React.FC = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#050510]/80 dark:bg-[#0A0A0A]/90 light:bg-white/80 backdrop-blur-md py-4' : 'bg-transparent py-6'}`}>
       <div className="max-w-[1800px] mx-auto px-6 lg:px-12 flex justify-between items-center">
         <Link to="/" className="group flex items-center gap-0.5">
-          <svg xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 500 500" className="w-8 h-8 text-primary blue:text-primary dark:text-white light:text-black transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 500 500" className="w-8 h-8 text-primary blue:text-white dark:text-white light:text-black transition-colors">
             <path fill="currentColor" fillOpacity=".1" d="M142 145.5c-2.4 2.5-4.2 4.5-3.9 4.5s2.5-2 4.9-4.5 4.2-4.5 3.9-4.5-2.5 2-4.9 4.5m-6 208.9c0 .2.8 1 1.8 1.7 1.5 1.3 1.6 1.2.3-.4s-2.1-2.1-2.1-1.3m9 9c0 .2.8 1 1.8 1.7 1.5 1.3 1.6 1.2.3-.4s-2.1-2.1-2.1-1.3"/>
             <path fill="currentColor" fillOpacity=".9" d="m142.5 146.2-4 4.3 4.3-4c3.9-3.6 4.7-4.5 3.9-4.5-.2 0-2.1 1.9-4.2 4.2M137 354.4c0 .2.8 1 1.8 1.7 1.5 1.3 1.6 1.2.3-.4s-2.1-2.1-2.1-1.3m8 8c0 .2.8 1 1.8 1.7 1.5 1.3 1.6 1.2.3-.4s-2.1-2.1-2.1-1.3"/>
             <g fill="currentColor" strokeWidth="0">
@@ -57,7 +57,7 @@ const Navbar: React.FC = () => {
             <Link
               key={link.name}
               to={link.path}
-              className={`text-sm font-medium transition-colors hover:text-black dark:hover:text-white blue:hover:text-primary light:hover:text-black ${location.pathname === link.path ? 'text-black dark:text-white blue:text-primary light:text-black' : 'text-black/60 dark:text-white/60 blue:text-white/60 light:text-black/60'}`}
+              className={`text-sm font-medium transition-colors hover:text-black dark:hover:text-white blue:hover:text-white light:hover:text-black ${location.pathname === link.path ? 'text-black dark:text-white blue:text-white light:text-black' : 'text-black/60 dark:text-white/60 blue:text-white/80 light:text-black/60'}`}
             >
               {link.name}
             </Link>
@@ -110,7 +110,7 @@ const Navbar: React.FC = () => {
                 key={link.name}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className={`text-lg font-medium transition-colors ${location.pathname === link.path ? 'text-white dark:text-white light:text-black' : 'text-white/60 dark:text-white/60 light:text-black/60'}`}
+                className={`text-lg font-medium transition-colors ${location.pathname === link.path ? 'text-white dark:text-white blue:text-white light:text-black' : 'text-white/60 dark:text-white/60 blue:text-white/80 light:text-black/60'}`}
               >
                 {link.name}
               </Link>

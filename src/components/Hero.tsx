@@ -5,6 +5,7 @@ import Hls from 'hls.js';
 
 import { useTheme } from '../context/ThemeContext';
 import MagneticButton from './MagneticButton';
+import { Highlighter } from '@/src/components/ui/highlighter';
 
 interface BlurInProps {
   children: React.ReactNode;
@@ -140,12 +141,17 @@ const Hero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
               className="max-w-xl text-white/80 dark:text-white/80 light:text-black/80 blue:text-white/80 sky:text-black/80 text-lg font-normal leading-relaxed transition-colors"
             >
-              <SplitText 
-                text="At Axxon Digital, we turn ideas into impact. From strategy to execution, we help businesses grow faster through creativity, data, and consistency." 
-                delay={0.9}
-                stagger={0.02}
-                duration={0.6}
-              />
+              <p className="leading-relaxed">
+                At Axxon Digital, we turn ideas into{" "}
+                <Highlighter action="underline" color="#3b82f6">
+                  impact
+                </Highlighter>
+                . From strategy to execution, we help businesses{" "}
+                <Highlighter action="highlight" color="#ffffff">
+                  grow faster
+                </Highlighter>{" "}
+                through creativity, data, and consistency.
+              </p>
             </motion.div>
           </div>
 

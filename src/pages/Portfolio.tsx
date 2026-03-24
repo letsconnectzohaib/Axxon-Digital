@@ -1,24 +1,18 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowUpRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import MagneticButton from '../components/MagneticButton';
 import TextReveal from '../components/TextReveal';
+import { portfolioCases } from '../data/portfolio';
 
 const Portfolio: React.FC = () => {
   const [filter, setFilter] = useState('All');
-
-  const cases = [
-    { title: "BPO Engagement Growth", stat: "300%", desc: "Increased brand engagement for a BPO in 90 days.", category: "Marketing", image: "https://picsum.photos/seed/bpo/800/600" },
-    { title: "Fashion Brand ROAS", stat: "4x", desc: "Helped a fashion brand achieve 4x ROAS through Meta ads.", category: "Performance", image: "https://picsum.photos/seed/fashion/800/600" },
-    { title: "Healthcare SEO", stat: "220%", desc: "Boosted website traffic using strategic SEO.", category: "SEO", image: "https://picsum.photos/seed/health/800/600" },
-    { title: "Real Estate Leads", stat: "Qualified", desc: "Generated high-quality leads within the first month.", category: "Marketing", image: "https://picsum.photos/seed/realestate/800/600" },
-    { title: "Tech Startup Branding", stat: "100%", desc: "Complete brand overhaul and identity design.", category: "Branding", image: "https://picsum.photos/seed/tech/800/600" },
-    { title: "E-Commerce Redesign", stat: "150%", desc: "Increased conversion rate with a new website.", category: "Web Development", image: "https://picsum.photos/seed/ecommerce/800/600" }
-  ];
+  const navigate = useNavigate();
 
   const categories = ['All', 'Marketing', 'Performance', 'SEO', 'Branding', 'Web Development'];
 
-  const filteredCases = filter === 'All' ? cases : cases.filter(c => c.category === filter);
+  const filteredCases = filter === 'All' ? portfolioCases : portfolioCases.filter(c => c.category === filter);
 
   return (
     <div className="bg-[#050510] dark:bg-[#0A0A0A] light:bg-[#F8F9FA] pt-32 transition-colors duration-300">
@@ -61,12 +55,13 @@ const Portfolio: React.FC = () => {
             {filteredCases.map((item, i) => (
               <motion.div
                 layout
-                key={item.title}
+                key={item.id}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4, type: "spring", stiffness: 100, damping: 20 }}
-                className="group relative aspect-[16/10] rounded-3xl overflow-hidden bg-[#050510] dark:bg-[#0A0A0A] light:bg-white border border-white/10 dark:border-white/10 light:border-black/10 p-12 flex flex-col justify-between hover:border-white/30 dark:hover:border-white/30 light:hover:border-black/30 transition-all transition-colors hover:scale-[1.02] duration-300"
+                onClick={() => navigate(`/portfolio/${item.id}`)}
+                className="group relative aspect-[16/10] rounded-3xl overflow-hidden bg-[#050510] dark:bg-[#0A0A0A] light:bg-white border border-white/10 dark:border-white/10 light:border-black/10 p-12 flex flex-col justify-between hover:border-white/30 dark:hover:border-white/30 light:hover:border-black/30 transition-all transition-colors hover:scale-[1.02] duration-300 cursor-pointer"
               >
                 {/* Parallax Image Background */}
                 <div className="absolute inset-0 z-0 overflow-hidden opacity-0 group-hover:opacity-40 transition-opacity duration-700">

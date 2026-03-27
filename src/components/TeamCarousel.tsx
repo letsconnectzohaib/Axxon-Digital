@@ -41,6 +41,8 @@ export interface TeamCarouselProps {
   onMemberChange?: (member: TeamMember, index: number) => void;
   onCardClick?: (member: TeamMember, index: number) => void;
   initialIndex?: number;
+  swipeThreshold?: number;
+  swipeSensitivity?: number;
 }
 
 export const TeamCarousel: React.FC<TeamCarouselProps> = ({
@@ -72,6 +74,8 @@ export const TeamCarousel: React.FC<TeamCarouselProps> = ({
   onMemberChange,
   onCardClick,
   initialIndex = 0,
+  swipeThreshold = 50,
+  swipeSensitivity = 1,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [direction, setDirection] = useState(0); // 0: no movement, 1: next, -1: prev
@@ -107,8 +111,11 @@ export const TeamCarousel: React.FC<TeamCarouselProps> = ({
 
   const getVariantStyles = (position: string): any => {
     const transition = {
+      type: "spring",
+      stiffness: 260,
+      damping: 25,
+      mass: 1,
       duration: animationDuration / 1000,
-      ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
     };
 
     switch (position) {
@@ -118,7 +125,7 @@ export const TeamCarousel: React.FC<TeamCarouselProps> = ({
           opacity: 1,
           scale: 1.1,
           x: 0,
-          filter: 'grayscale(0%)',
+          filter: 'grayscale(0%) blur(0px)',
           pointerEvents: 'auto',
           transition,
         };
@@ -128,17 +135,17 @@ export const TeamCarousel: React.FC<TeamCarouselProps> = ({
           opacity: sideCardOpacity,
           scale: sideCardScale,
           x: cardWidth * 0.7,
-          filter: grayscaleEffect ? 'grayscale(100%)' : 'grayscale(0%)',
+          filter: grayscaleEffect ? 'grayscale(100%) blur(1px)' : 'grayscale(0%) blur(0px)',
           pointerEvents: 'auto',
           transition,
         };
       case 'right-2':
         return {
           zIndex: 1,
-          opacity: sideCardOpacity * 0.7,
-          scale: sideCardScale * 0.9,
+          opacity: sideCardOpacity * 0.5,
+          scale: sideCardScale * 0.85,
           x: cardWidth * 1.4,
-          filter: grayscaleEffect ? 'grayscale(100%)' : 'grayscale(0%)',
+          filter: grayscaleEffect ? 'grayscale(100%) blur(2px)' : 'grayscale(0%) blur(0px)',
           pointerEvents: 'auto',
           transition,
         };
@@ -148,17 +155,17 @@ export const TeamCarousel: React.FC<TeamCarouselProps> = ({
           opacity: sideCardOpacity,
           scale: sideCardScale,
           x: -cardWidth * 0.7,
-          filter: grayscaleEffect ? 'grayscale(100%)' : 'grayscale(0%)',
+          filter: grayscaleEffect ? 'grayscale(100%) blur(1px)' : 'grayscale(0%) blur(0px)',
           pointerEvents: 'auto',
           transition,
         };
       case 'left-2':
         return {
           zIndex: 1,
-          opacity: sideCardOpacity * 0.7,
-          scale: sideCardScale * 0.9,
+          opacity: sideCardOpacity * 0.5,
+          scale: sideCardScale * 0.85,
           x: -cardWidth * 1.4,
-          filter: grayscaleEffect ? 'grayscale(100%)' : 'grayscale(0%)',
+          filter: grayscaleEffect ? 'grayscale(100%) blur(2px)' : 'grayscale(0%) blur(0px)',
           pointerEvents: 'auto',
           transition,
         };
@@ -166,10 +173,10 @@ export const TeamCarousel: React.FC<TeamCarouselProps> = ({
         return {
           zIndex: 0,
           opacity: 0,
-          scale: 0.8,
+          scale: 0.7,
           x: direction > 0 ? cardWidth * (visibleCards + 1) : -cardWidth * (visibleCards + 1),
           pointerEvents: 'none',
-          filter: grayscaleEffect ? 'grayscale(100%)' : 'grayscale(0%)',
+          filter: grayscaleEffect ? 'grayscale(100%) blur(4px)' : 'grayscale(0%) blur(0px)',
           transition,
         };
     }
@@ -241,8 +248,7 @@ export const TeamCarousel: React.FC<TeamCarouselProps> = ({
 
   const handleTouchEnd = () => {
     if (!touchNavigation) return;
-    const swipeThreshold = 50;
-    const diff = touchStart - touchEnd;
+    const diff = (touchStart - touchEnd) * swipeSensitivity;
 
     if (Math.abs(diff) > swipeThreshold) {
       if (diff > 0) {

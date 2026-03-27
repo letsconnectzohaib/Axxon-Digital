@@ -246,6 +246,14 @@ const Home: React.FC = () => {
 
       {/* Team Section */}
       <section className="py-24 relative overflow-hidden">
+        <div className="text-center mb-16 px-6 relative z-10">
+          <h2 className="text-3xl md:text-4xl font-medium text-white dark:text-white light:text-black mb-4 transition-colors">
+            <TextReveal text="Meet the Team" className="justify-center" />
+          </h2>
+          <p className="text-white/60 dark:text-white/60 light:text-black/60 max-w-2xl mx-auto transition-colors">
+            The creative minds and technical experts behind our success.
+          </p>
+        </div>
         <TeamCarousel 
           members={teamMembers} 
           title="MEET THE TEAM"

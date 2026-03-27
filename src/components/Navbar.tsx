@@ -32,7 +32,7 @@ const Navbar: React.FC = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#050510]/80 dark:bg-[#0A0A0A]/90 light:bg-white/80 backdrop-blur-md py-4' : 'bg-transparent py-6'}`}>
       <div className="max-w-[1800px] mx-auto px-6 lg:px-12 flex justify-between items-center">
         <Link to="/" className="group flex items-center gap-0.5">
-          <svg xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 500 500" className="w-8 h-8 text-primary blue:text-white dark:text-white light:text-black transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 500 500" className="w-8 h-8 text-primary blue:text-white sky:text-white dark:text-white light:text-black transition-colors">
             <path fill="currentColor" fillOpacity=".1" d="M142 145.5c-2.4 2.5-4.2 4.5-3.9 4.5s2.5-2 4.9-4.5 4.2-4.5 3.9-4.5-2.5 2-4.9 4.5m-6 208.9c0 .2.8 1 1.8 1.7 1.5 1.3 1.6 1.2.3-.4s-2.1-2.1-2.1-1.3m9 9c0 .2.8 1 1.8 1.7 1.5 1.3 1.6 1.2.3-.4s-2.1-2.1-2.1-1.3"/>
             <path fill="currentColor" fillOpacity=".9" d="m142.5 146.2-4 4.3 4.3-4c3.9-3.6 4.7-4.5 3.9-4.5-.2 0-2.1 1.9-4.2 4.2M137 354.4c0 .2.8 1 1.8 1.7 1.5 1.3 1.6 1.2.3-.4s-2.1-2.1-2.1-1.3m8 8c0 .2.8 1 1.8 1.7 1.5 1.3 1.6 1.2.3-.4s-2.1-2.1-2.1-1.3"/>
             <g fill="currentColor" strokeWidth="0">
@@ -46,8 +46,8 @@ const Navbar: React.FC = () => {
             <path fill="currentColor" fillOpacity=".8" d="M147.9 140.7c-1.3 1.6-1.2 1.7.4.4.9-.7 1.7-1.5 1.7-1.7 0-.8-.8-.3-2.1 1.3m71.5 82.5-1.9 2.3 2.3-1.9c2.1-1.8 2.7-2.6 1.9-2.6-.2 0-1.2 1-2.3 2.2m60.1-.2c1 1.1 2 2 2.3 2s-.3-.9-1.3-2-2-2-2.3-2 .3.9 1.3 2m-60 59c1 1.1 2 2 2.3 2s-.3-.9-1.3-2-2-2-2.3-2 .3.9 1.3 2m59.9.2-1.9 2.3 2.3-1.9c1.2-1.1 2.2-2.1 2.2-2.3 0-.8-.8-.2-2.6 1.9"/>
           </svg>
           <span className="text-lg sm:text-2xl font-sans font-medium tracking-normal transition-colors flex flex-col sm:flex-row sm:items-center leading-none sm:leading-normal">
-            <span className="text-black dark:text-white blue:text-white transition-colors">Axxon</span>
-            <span className="text-gray-500 dark:text-gray-400 blue:text-primary transition-colors text-base sm:text-2xl ml-0 sm:ml-2">Digital</span>
+            <span className="text-black dark:text-white blue:text-white sky:text-white transition-colors">Axxon</span>
+            <span className="text-gray-500 dark:text-gray-400 blue:text-primary sky:text-primary transition-colors text-base sm:text-2xl ml-0 sm:ml-2">Digital</span>
           </span>
         </Link>
 
@@ -57,7 +57,7 @@ const Navbar: React.FC = () => {
             <Link
               key={link.name}
               to={link.path}
-              className={`text-sm font-medium transition-colors hover:text-black dark:hover:text-white blue:hover:text-white light:hover:text-black ${location.pathname === link.path ? 'text-black dark:text-white blue:text-white light:text-black' : 'text-black/60 dark:text-white/60 blue:text-white/80 light:text-black/60'}`}
+              className={`text-sm font-medium transition-colors hover:text-black dark:hover:text-white blue:hover:text-white sky:hover:text-white light:hover:text-black ${location.pathname === link.path ? 'text-black dark:text-white blue:text-white sky:text-white light:text-black' : 'text-black/60 dark:text-white/60 blue:text-white/80 sky:text-white/80 light:text-black/60'}`}
             >
               {link.name}
             </Link>
@@ -66,7 +66,7 @@ const Navbar: React.FC = () => {
           {/* Theme Toggle */}
           <button 
             onClick={cycleTheme}
-            className="p-2 rounded-full bg-black/5 dark:bg-white/5 blue:bg-white/5 border border-black/10 dark:border-white/10 blue:border-white/10 text-black dark:text-white blue:text-white hover:scale-110 transition-all"
+            className="p-2 rounded-full bg-black/5 dark:bg-white/5 blue:bg-white/5 sky:bg-white/5 border border-black/10 dark:border-white/10 blue:border-white/10 sky:border-white/10 text-black dark:text-white blue:text-white sky:text-white hover:scale-110 transition-all"
             aria-label="Toggle theme"
           >
             {theme === 'light' ? <Sun size={18} className="text-amber-500" /> : theme === 'blue' ? <Zap size={18} className="text-primary" /> : <Moon size={18} className="text-slate-300" />}
@@ -110,7 +110,7 @@ const Navbar: React.FC = () => {
                 key={link.name}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className={`text-lg font-medium transition-colors ${location.pathname === link.path ? 'text-white dark:text-white blue:text-white light:text-black' : 'text-white/60 dark:text-white/60 blue:text-white/80 light:text-black/60'}`}
+                className={`text-lg font-medium transition-colors ${location.pathname === link.path ? 'text-white dark:text-white blue:text-white sky:text-white light:text-black' : 'text-white/60 dark:text-white/60 blue:text-white/80 sky:text-white/80 light:text-black/60'}`}
               >
                 {link.name}
               </Link>

@@ -4,6 +4,7 @@ import { CheckCircle2, Rocket, Phone, ArrowRight, Share2, Palette, TrendingUp, S
 import Hero from '../components/Hero';
 import TrustBanner from '../components/TrustBanner';
 import UserReviews from '../components/UserReviews';
+import TeamCarousel, { TeamMember } from '../components/TeamCarousel';
 
 import Marquee from '../components/Marquee';
 import AnimatedCounter from '../components/AnimatedCounter';
@@ -63,6 +64,44 @@ const Home: React.FC = () => {
     "24/7 support & client communication",
     "Data-driven decision-making",
     "Passionate team that cares about your brand"
+  ];
+
+  const teamMembers: TeamMember[] = [
+    {
+      id: "1",
+      name: "Alex Rivera",
+      role: "Creative Director",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop",
+      bio: "Alex brings 10+ years of experience in brand storytelling and visual identity."
+    },
+    {
+      id: "2",
+      name: "Sarah Chen",
+      role: "Lead Strategist",
+      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop",
+      bio: "Data-driven and creative, Sarah ensures every campaign hits its target ROI."
+    },
+    {
+      id: "3",
+      name: "Marcus Johnson",
+      role: "Senior Developer",
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop",
+      bio: "Marcus builds blazing fast, accessible, and beautiful web experiences."
+    },
+    {
+      id: "4",
+      name: "Emily Davis",
+      role: "SEO Specialist",
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=800&auto=format&fit=crop",
+      bio: "Emily knows the algorithms inside and out, keeping our clients at the top of search results."
+    },
+    {
+      id: "5",
+      name: "David Kim",
+      role: "Performance Marketer",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=800&auto=format&fit=crop",
+      bio: "David turns ad spend into revenue with precision targeting and optimization."
+    }
   ];
 
   return (
@@ -204,6 +243,17 @@ const Home: React.FC = () => {
 
       {/* User Reviews Section */}
       <UserReviews />
+
+      {/* Team Section */}
+      <section className="py-24 relative overflow-hidden">
+        <TeamCarousel 
+          members={teamMembers} 
+          title="MEET THE TEAM"
+          titleColor="rgba(59, 130, 246, 0.8)" // Primary blue color with opacity
+          infoTextColor="currentColor"
+          className="min-h-[800px] bg-transparent"
+        />
+      </section>
 
       {/* Final CTA (Recipe 2) */}
       <section className="py-48 text-center px-6 relative overflow-hidden">

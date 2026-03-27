@@ -46,7 +46,7 @@ const SplitText: React.FC<SplitTextProps> = ({
   return (
     <div className={`flex flex-wrap gap-x-[0.3em] ${className}`}>
       {words.map((word, i) => (
-        <div key={i} className="overflow-hidden">
+        <div key={i} className="overflow-hidden pr-[0.3em] -mr-[0.3em] pb-[0.2em] -mb-[0.2em]">
           <motion.span
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}

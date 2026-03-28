@@ -112,8 +112,8 @@ export const TeamCarousel: React.FC<TeamCarouselProps> = ({
   const getVariantStyles = (position: string): any => {
     const transition = {
       type: "spring",
-      stiffness: 260,
-      damping: 25,
+      stiffness: 300,
+      damping: 30,
       mass: 1,
       duration: animationDuration / 1000,
     };

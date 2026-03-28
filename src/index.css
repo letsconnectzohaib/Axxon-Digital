@@ -9,9 +9,10 @@
   --color-accent: #60A5FA;
 }
 
-@variant light (&:where(.light, .light *));
-@variant blue (&:where(.blue, .blue *));
-@variant dark (&:where(.dark, .dark *));
+@custom-variant light (&:where(.light, .light *));
+@custom-variant blue (&:where(.blue, .blue *));
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant sky (&:where(.sky, .sky *));
 
 @layer base {
   html {
@@ -22,6 +23,7 @@
     @apply light:bg-[#F8F9FA] light:text-[#1A1A1A];
     @apply blue:bg-[#050510] blue:text-white;
     @apply dark:bg-[#0A0A0A] dark:text-[#E0E0E0];
+    @apply sky:bg-[#F0F7FF] sky:text-[#1A1A1A];
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

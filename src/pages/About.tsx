@@ -148,10 +148,10 @@ const About: React.FC = () => {
                   {member.bio}
                 </p>
                 <div className="flex gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150">
-                  <a href="#" className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-primary transition-colors text-white backdrop-blur-sm">
+                  <a href="#/contact" className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-primary transition-colors text-white backdrop-blur-sm">
                     <Linkedin size={18} />
                   </a>
-                  <a href="#" className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-primary transition-colors text-white backdrop-blur-sm">
+                  <a href="#/contact" className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-primary transition-colors text-white backdrop-blur-sm">
                     <Twitter size={18} />
                   </a>
                 </div>

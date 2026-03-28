@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 
 interface MagneticButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, React.AnchorHTMLAttributes<HTMLAnchorElement> {
   children: React.ReactNode;
@@ -26,8 +27,11 @@ const MagneticButton: React.FC<MagneticButtonProps> = ({ children, className = "
     setPosition({ x: 0, y: 0 });
   };
 
-  const Component = href ? motion.a : motion.button;
-  const props = href ? { href } : { onClick };
+  const isInternalLink = href && href.startsWith('/');
+  const MotionLink = motion.create(Link);
+
+  const Component = isInternalLink ? MotionLink : (href ? motion.a : motion.button);
+  const props = isInternalLink ? { to: href } : (href ? { href } : { onClick });
 
   return (
     <motion.div

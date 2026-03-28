@@ -6,6 +6,7 @@ import MagneticButton from '../components/MagneticButton';
 import TextReveal from '../components/TextReveal';
 import TiltCard from '../components/TiltCard';
 import HoverImageReveal from '../components/HoverImageReveal';
+import SEO from '../components/SEO';
 
 const Blog: React.FC = () => {
   const [filter, setFilter] = useState('All');
@@ -118,7 +119,7 @@ const Blog: React.FC = () => {
         </motion.div>
 
         <div className="mt-32 text-center">
-          <MagneticButton className="px-10 py-4 rounded-full bg-white blue:bg-primary dark:bg-white light:bg-black text-black blue:text-white dark:text-black light:text-white font-medium transition-transform transition-colors shadow-lg flex items-center justify-center gap-2 mx-auto">
+          <MagneticButton href="/contact" className="px-10 py-4 rounded-full bg-white blue:bg-primary dark:bg-white light:bg-black text-black blue:text-white dark:text-black light:text-white font-medium transition-transform transition-colors shadow-lg flex items-center justify-center gap-2 mx-auto">
             Read More Insights from Axxon Digital <ArrowRight size={18} />
           </MagneticButton>
         </div>
